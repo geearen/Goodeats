@@ -1,5 +1,6 @@
 # Goodeats 
 by Nick Arredondo & Allen Gonzales
+
 # User Story
 
 # Scope
@@ -20,7 +21,8 @@ by Nick Arredondo & Allen Gonzales
 ![REGISTER] (https://i.imgur.com/TWHZGfR.png)
 
 # Color Pallete
-
+https://coolors.co/003049-d62828-f77f00-fcbf49-eae2b7
+![COLORS] (https://coolors.co/003049-d62828-f77f00-fcbf49-eae2b7)
 # REST/CRUD 
 ![CRUD] (https://i.imgur.com/EA6YKUD.png)
 
@@ -28,3 +30,10 @@ by Nick Arredondo & Allen Gonzales
 ![ERD]  (https://i.imgur.com/mhELHcH.png)
 
 # Technologies
+    - Express
+    - EJS
+    - MongoDB
+    - Mongoose
+    - method-override
+    - concurrently
+    - 

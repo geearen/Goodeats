@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended:true}));
 
 /*  Routes */
 app.use("/recipes", controllers.recipe);
-// app.use("/reviews", controllers.review);
+app.use("/reviews", controllers.review);
 
 
 

@@ -1,6 +1,6 @@
 require("../config/db.connection");
 
-module.exports = {
-  Product: require("./Recipe"),
+module.exports ={
+  Recipe: require("./Recipe"),
   Review: require("./Review"),
-};
+}

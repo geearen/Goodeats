@@ -19,13 +19,10 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
 /*  Routes */
-// app.use("/recipes", controllers.recipe);
+app.use("/recipes", controllers.recipe);
 // app.use("/reviews", controllers.review);
 
-/* INDEX route */
-app.get("/recipes", function(request, response) {
-    response.send("I AM INDEX");
-})
+
 
 /* 404 */
 

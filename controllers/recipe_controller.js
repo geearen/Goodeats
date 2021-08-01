@@ -64,12 +64,29 @@ router.get("/:id", function(request,response){
 
 /* Edit Route */
 router.get("/:id/edit", function(request,response){
-  response.send("I AM EDIT PAGE")
+  // response.send("I AM EDIT PAGE")
 });
 
 /* Update Route */
 router.put("/:id", function(request, response){
-  response.send("I AM UPDATED");
+  // response.send("I AM UPDATED");
+  Recipe.findByIdAndUpdate(
+    request.params.id,
+    {
+      $set: request.body,
+    },
+    {
+      new: true,
+    },
+    function (error, updatedRecipe) {
+      if (error) {
+        console.log(error);
+        request.error = error;
+        return next();
+      }
+      return response.redirect(`/products/${updatedRecipe.id}`);
+    }
+  );
 });
 
 /* Delete Route */

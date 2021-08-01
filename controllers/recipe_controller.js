@@ -65,6 +65,17 @@ router.get("/:id", function(request,response){
 /* Edit Route */
 router.get("/:id/edit", function(request,response){
   // response.send("I AM EDIT PAGE")
+  Recipe.findById(request.params.id, function(error, foundRecipe){
+    if(error){
+      console.log(error);
+      request.error = error;
+      return next();
+    };
+    const context ={
+      recipe:foundRecipe,
+    };
+    return response.render("recipes/edit", context);
+  })
 });
 
 /* Update Route */
@@ -83,8 +94,8 @@ router.put("/:id", function(request, response){
         console.log(error);
         request.error = error;
         return next();
-      }
-      return response.redirect(`/products/${updatedRecipe.id}`);
+      };
+      return response.redirect(`/recipes/${updatedRecipe.id}`);
     }
   );
 });

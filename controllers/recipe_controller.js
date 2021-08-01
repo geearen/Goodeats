@@ -18,7 +18,7 @@ router.get("/", function (request, response) {
         recipes:allRecipes,
       };
       response.send(context);
-    })
+    });
 });
 
 
@@ -75,7 +75,7 @@ router.get("/:id/edit", function(request,response){
       recipe:foundRecipe,
     };
     return response.render("recipes/edit", context);
-  })
+  });
 });
 
 /* Update Route */
@@ -102,7 +102,15 @@ router.put("/:id", function(request, response){
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  response.send("I AM DELETED oh nooo");
+  // response.send("I AM DELETED oh nooo");
+  Recipe.findByIdAndDelete(request.params.id, function(error, deletedRecipes){
+    if(error){
+      console.log(error);
+      request.error = error;
+      return next();
+    };
+    return response.redirect("/recipes");
+  });
 });
 
 module.exports = router;

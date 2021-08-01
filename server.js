@@ -18,6 +18,10 @@ app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
+
+/* Custom Middleware */
+app.use(require("./utils/logger"));
+
 /*  Routes */
 app.use("/recipes", controllers.recipe);
 app.use("/reviews", controllers.review);

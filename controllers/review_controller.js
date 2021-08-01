@@ -7,19 +7,44 @@ const {Review} = require("../models");
 
 /* Index Route */
 router.get("/", function (request, response) {
-    response.send("I AM INDEX OF PERSONAL OPINONS");
+  Review.find({}, function (error, allReviews){
+    if (error) {
+      console.log(error);
+      req.error = error;
+      return next();
+    }
+  })
+  const context = {
+    reviews: allReviews,
+  };
+
+  return response.render("reviews/index", content);
 });
 
 
 /* Create Route */
 router.post("/", function(request, response){
-  response.send("I WILL CREATE MY PERSONAL OPINION");
+  Review.create(req.body, function (error, createdReviews){
+    if(error){
+      console.log(error)
+      req.error = error;
+      return next();
+    }
+   return res.redirect("/reviews")
+  });
 });
 
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  response.send("I AM DELETED oh nooo");
+  Review.findById(req.param.id, function (error, deletedReviews){
+    if(error) {
+      console.log(error)
+      req.error = error;
+      return next();
+ q   }
+ return res.redirect("/reviews")
+  })
 });
 
 module.exports = router;

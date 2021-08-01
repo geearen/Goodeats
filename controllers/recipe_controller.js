@@ -24,12 +24,15 @@ router.get("/", function (request, response) {
 
 /* New Route */
 router.get("/new", function(request, response){
-  response.send("I AM NEW PAGE");
+  // response.send("I AM NEW PAGE");
+  const context ={};
+  return res.render("products/new", context);
 });
 
 /* Create Route */
 router.post("/", function(request, response){
-  response.send("I AM CREATE PAGE");
+  // response.send("I AM CREATE PAGE");
+  
 });
 
 /* Show Route */

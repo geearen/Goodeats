@@ -23,7 +23,7 @@ router.get("/", function (request, response) {
 
 /* Create Route */
 router.post("/", function(request, response){
-  Review.create(req.body, function (error, createdReviews){
+  Review.create(request.body, function (error, createdReviews){
     if(error){
       console.log(error)
       req.error = error;
@@ -36,7 +36,7 @@ router.post("/", function(request, response){
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  Review.findById(req.param.id, function (error, deletedReviews){
+  Review.findById(request.param.id, function (error, deletedReviews){
     if(error) {
       console.log(error)
       req.error = error;

@@ -7,13 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/reviews"  method ="POST" class="container">
-        <div class="ui large star rating" data-rating="3"></div>
-        <div class="ui form">
+        <form action="/reviews" method="POST">
             <div class="field">
-              <label>Text</label>
-              <textarea></textarea>
+              <label class="label">Rating</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="number"
+                  name="rating"
+                  min="0"
+                  max="5"
+                  placeholder="0-5"
+                />
+              </div>
             </div>
-        </form>
+            <div class="field">
+              <label class="label">Content</label>
+              <div class="control">
+                <textarea
+                  name="content"
+                  class="textarea"
+                  placeholder="Leave a review!"
+                ></textarea>
+              </div>
+            </div>
 </body>
 </html>

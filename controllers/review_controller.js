@@ -13,12 +13,12 @@ router.get("/", function (request, response) {
       req.error = error;
       return next();
     }
+    const context = {
+      reviews: allReviews,
+    };
+    response.send(context)
   })
-  const context = {
-    reviews: allReviews,
-  };
-
-  return response.render("reviews/index", content);
+  // return response.send("reviews/index", context);
 });
 
 

@@ -7,7 +7,18 @@ const {Recipe} = require("../models");
 
 /* Index Route */
 router.get("/", function (request, response) {
-    response.send("I AM INDEX");
+    // response.send("I AM INDEX");
+    Recipe.find({}, function (error, allRecipes){
+      if(error){
+        console.log(error);
+        request.error = error;  
+      };
+      
+      const context = {
+        recipes:allRecipes,
+      };
+      response.send(context);
+    })
 });
 
 

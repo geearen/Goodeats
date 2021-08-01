@@ -1,6 +1,6 @@
 const {Review} = require("../models");
 
-Review.delete({}, function(error, deletedReviews){
+Review.deleteMany({}, function(error, deletedReviews){
   if(error){
     return console.log(error);
   }

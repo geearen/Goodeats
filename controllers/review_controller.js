@@ -16,9 +16,8 @@ router.get("/", function (request, response) {
     const context = {
       reviews: allReviews,
     };
-    response.send(context)
+    return response.render("reviews/index", context);
   })
-  // return response.send("reviews/index", context);
 });
 
 
@@ -30,7 +29,7 @@ router.post("/", function(request, response){
       req.error = error;
       return next();
     }
-   return res.redirect("/reviews")
+   return response.redirect("/reviews")
   });
 });
 
@@ -43,7 +42,7 @@ router.delete("/:id", function(request, response){
       req.error = error;
       return next();
  q   }
- return res.redirect("/reviews")
+ return response.redirect("/reviews")
   })
 });
 

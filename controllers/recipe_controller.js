@@ -48,7 +48,18 @@ router.post("/", function(request, response){
 
 /* Show Route */
 router.get("/:id", function(request,response){
-  response.send("I AM SHOW PAGE");
+  // response.send("I AM SHOW PAGE");
+  Recipe.findById(request.params.id, function(error, foundRecipe){
+    if(error){
+      console.log(error);
+      request.error = error;
+      return next();
+    }
+    const context ={
+      recipe: foundRecipe,
+    };
+    return response.render("recipes/show", context);
+  });
 });
 
 /* Edit Route */

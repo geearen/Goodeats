@@ -36,10 +36,46 @@
       <button class="ui button">Edit</button>
       <button class="ui button">Delete</button>
     </div>
-
-
-
-    
   </div>
+
+
+
+    <section>
+      <div>
+        <h1>Comment section</h1>
+      </div>
+    </section>
+
+    <% reviews.forEach(review => { %>
+      <div class="ui veritcally divided gird">
+        <div class="two column row">
+          <div class="three wide column">
+            <img class="ui circular mini image" src="https://picsum.photos/200" alt="avatar">
+          </div>
+
+          <div class="column">
+            <div class="ui comments">
+              <div class="comment">
+                <div class="content">
+                  <a href="" class="author user"> Allen Gonzales</a>
+                  <div class="metadata">
+                    <div class="date"> <%= new Date(review.createdAt).toLocaleString() %> </div>
+                    <div class="rating">
+                      <i class="star icon"></i>
+                      <%= review.rating %>
+                    </div>
+                  </div>
+                  <div class="text">
+                    <%= review.content %> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <% }) %> 
+
 </body>
 </html>

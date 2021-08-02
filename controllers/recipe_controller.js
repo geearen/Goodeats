@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const {Recipe} = require("../models");
+const Review = require("../models/Review");
 
 
 /* Index Route */
@@ -55,10 +56,13 @@ router.get("/:id", function(request,response){
       request.error = error;
       return next();
     }
-    const context ={
-      recipe: foundRecipe,
-    };
-    return response.render("recipes/show", context);
+    Review.find({}, function(error,allReviews) {
+      const context ={
+        recipe: foundRecipe,
+        reviews:allReviews,
+      };
+      return response.render("recipes/show", context);
+    })
   });
 });
 

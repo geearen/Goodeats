@@ -17,7 +17,7 @@ router.get("/", function (request, response) {
       const context = {
         recipes:allRecipes,
       };
-      response.send(context);
+      return response.render("recipes/index",context);
     });
 });
 

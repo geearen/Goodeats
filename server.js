@@ -15,6 +15,7 @@ const controllers = require("./controllers");
 app.set("view engine", "ejs");
 
 /* Middleware */
+app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 

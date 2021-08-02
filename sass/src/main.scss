@@ -1,0 +1,9 @@
+@use "../_variables/" as *;
+
+*{
+  box-sizing: border-box;
+}
+
+.spotlight{
+  background: var($orange);
+}

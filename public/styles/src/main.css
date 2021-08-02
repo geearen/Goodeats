@@ -2,8 +2,17 @@
   box-sizing: border-box;
 }
 
-.spotlight {
-  background: var(#f77f00);
+.ui.center.aligned.segment.spotlight {
+  background-color: var(#f77f00);
+}
+
+.ui.block.header {
+  background-color: var(#f77f00);
+}
+
+.small__logo {
+  width: 80px;
+  height: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

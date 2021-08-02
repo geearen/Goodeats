@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
-.spotlight{
-  background: var($orange);
+.ui.center.aligned.segment.spotlight{
+  background-color: var($orange);
+}
+
+.ui.block.header{
+  background-color: var($orange);
+}
+
+.small__logo{
+  width: 80px;
+  height: auto;
 }

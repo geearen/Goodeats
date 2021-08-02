@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.ui.center.aligned.segment.spotlight {
+  background-color: var(#f77f00);
+}
+
+.ui.block.header {
+  background-color: var(#f77f00);
+}
+
+.small__logo {
+  width: 80px;
+  height: auto;
+}
+
+/* NEW PAGE */
+.form {
+  padding: 20px;
+  margin: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */

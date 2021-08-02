@@ -32,9 +32,13 @@
         <div class="item"><%= instruction %></div>
       <% }) %> 
     </div>
-    <div class="content">
-      <button class="ui button">Edit</button>
-      <button class="ui button">Delete</button>
+    
+    <div class="content">  
+      <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
+      
+      <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+        <a href=""class="ui button">Delete</a>
+      </form>
     </div>
   </div>
 

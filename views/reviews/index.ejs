@@ -7,32 +7,6 @@
 
   <%- include("../partials/navbar/_navbar") %> 
 
-
-  <!-- This is the form for new reviews-->
-<section class="form">
-  <div class="ui attached message">
-    <div class="content">
-      <div class="ui huge header">Rate Your Favorite Recipe!</div>
-    </div>
-    <p>Fill out the field below to submit your review!</p>
-  </div>
-  
-  <form action="/reviews" method="POST" class="ui large form attached fluid segment" >
-    <div class = "field">
-      <label for="label">Rating </label>
-      <input type="number" name="raiting" min="0" max="5" placeholder="0-5">
-    </div>
-    <div class="field">
-      <label>Short Text</label>
-      <textarea rows="3"></textarea>
-    </div>
-    <div>
-      <button class="ui orange button">Save</button>
-      <button class="ui black button">Discard</button>
-  </div>
-  </form>
-    </section>
-
 <!-- This is where the reviews will go  -->
     
 <section class="ui row">
@@ -52,7 +26,7 @@
             </div>
           </div>
           <div class="text">
-            <%= review.conten
+            <%= review.content %>
           </div>
         </div>
       </div>

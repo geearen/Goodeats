@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <title>Review</title>
-  </head>
-  <body>
-    <div class="ui center aligned container">
-      <form action="/reviews" method="POST" class=" ui form">
-        <div class="field"> 
-          <label>Rating</label>
-          <input
-          class="input"
-          type="number"
-          name="rating"
-          min="0"
-          max="5"
-          placeholder="0-5"
-          />
-        </div>
-        <div class="field">
-          <label>Short Text</label>
-          <textarea rows="3"></textarea>
-        </div>
-          <button class="ui orange button">Save</button>
-          <button class="ui black button">Discard</button>
-        </div>
-       </div>
-      </form>
+
+  <%- include("../partials/head/_head") %>  
+
+<body>
+
+  <%- include("../partials/navbar/_navbar") %> 
+
+
+  <!-- This is the form for new reviews-->
+<section class="form">
+  <div class="ui attached message">
+    <div class="content">
+      <div class="ui huge header">Rate Your Favorite Recipe!</div>
     </div>
+    <p>Fill out the field below to submit your review!</p>
+  </div>
+  
+  <form action="/reviews" method="POST" class="ui large form attached fluid segment" >
+    <div class = "field">
+      <label for="label">Rating </label>
+      <input type="number" name="raiting" min="0" max="5" placeholder="0-5">
+    </div>
+    <div class="field">
+      <label>Short Text</label>
+      <textarea rows="3"></textarea>
+    </div>
+    <div>
+      <button class="ui orange button">Save</button>
+      <button class="ui black button">Discard</button>
+  </div>
+  </form>
+    </section>
+
+<!-- This is where the reviews will go  -->
+    
+<section class="ui row">
+  <% reviews.forEach(review => { %>
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/avatar/small/stevie.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Username</a>
+          <div class="metadata">
+            <div class="date">"Newdatelocalestring"</div>
+            <div class="rating">
+              <i class="star icon"></i>
+              5 Faves
+            </div>
+          </div>
+          <div class="text">
+            <%= review.content %>
+          </div>
+        </div>
+      </div>
+    </div>  
+  <% }) %>
 
 
-
-      <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
-      <script src="semantic/dist/semantic.min.js"></script>
-    </body>
+ </section>
+ </body>
 </html>

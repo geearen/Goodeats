@@ -13,37 +13,36 @@ router.get("/", function (request, response) {
       req.error = error;
       return next();
     }
+    const context = {
+      reviews: allReviews,
+    };
+    return response.render("reviews/index", context);
   })
-  const context = {
-    reviews: allReviews,
-  };
-
-  return response.render("reviews/index", content);
 });
 
 
 /* Create Route */
 router.post("/", function(request, response){
-  Review.create(req.body, function (error, createdReviews){
+  Review.create(request.body, function (error, createdReviews){
     if(error){
       console.log(error)
       req.error = error;
       return next();
     }
-   return res.redirect("/reviews")
+   return response.redirect("/reviews")
   });
 });
 
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  Review.findById(req.param.id, function (error, deletedReviews){
+  Review.findById(request.param.id, function (error, deletedReviews){
     if(error) {
       console.log(error)
       req.error = error;
       return next();
  q   }
- return res.redirect("/reviews")
+ return response.redirect("/reviews")
   })
 });
 

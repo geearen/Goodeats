@@ -24,9 +24,9 @@ app.use(express.urlencoded({extended:true}));
 app.use(require("./utils/logger"));
 
 /*  Routes */
+app.use("/", controllers.auth);
 app.use("/recipes", controllers.recipe);
 app.use("/reviews", controllers.review);
-
 
 
 /* 404 */

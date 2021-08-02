@@ -1,7 +1,66 @@
 <html lang="en">
+
 <%- include("../partials/head/_head") %>
 
 <body>
+    <img class="brand logo" src="/assets/favicon/goodeats_logo_transparent.png" alt="goodeats logo">
+    <div class="ui huge menu ">
+      <a class="item" href="/recipes">GoodEats
+        <img class="small__logo" src="/assets/favicon/Goodeats_favicon.png" alt="goodeats small logo">
+      </a>
+    
+      <div class="right menu">
+        <a class="item" href="/recipes/new">New Recipe</a>
+        <div class="item">
+          <a class="ui orange button" href="/login">Login</a>
+        </div>
+        <div class="item">
+          <a class="ui primary button" href="/register">Register</a>
+        </div>
+      </div>
+    </div>
+
+<section class="form">
+
+  <div class="ui attached message">
+    <div class="content">
+      <div class="ui huge header"> New Recipe</div>
+    </div>
+    <p>Fill out the field below to submit your recipe!</p>
+  </div>
   
+  <form class="ui large form attached fluid segment" action="/recipes" method="post">
+    <div class = "field">
+      <label for="title">Recipe Title </label>
+      <input type="text" name="title">
+    </div>
+    
+    <div class="field">
+      <label for="image">Image</label>
+      <input type="text" name="image">
+    </div>
+    
+    <div class="field">
+      <label for="category">Category</label>
+      <input type="text" name="category">
+    </div>
+    
+    <div class="field">
+      <label for="ingredients">Ingredients</label>
+      <input type="text" name="ingredients">
+    </div>
+    
+    <div class="field">
+      <label for="instructions">Instructions</label>
+      <input type="text" name="instructions">
+    </div>
+    
+    <div class="content">
+      <button class="ui button primary">Submit</button>
+    </div>
+  </form>
+  
+</section>
+
 </body>
 </html>

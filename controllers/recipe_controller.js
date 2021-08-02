@@ -17,7 +17,7 @@ router.get("/", function (request, response) {
       const context = {
         recipes:allRecipes,
       };
-      response.send(context);
+      return response.render("recipes/index",context);
     });
 });
 
@@ -26,7 +26,7 @@ router.get("/", function (request, response) {
 router.get("/new", function(request, response){
   // response.send("I AM NEW PAGE");
   const context ={};
-  return res.render("recipes/new", context);
+  return response.render("recipes/new", context);
 });
 
 /* Create Route */

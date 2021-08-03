@@ -1,13 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
 * {
   box-sizing: border-box;
 }
 
-.ui.center.aligned.segment.spotlight {
-  background-color: var(#f77f00);
-}
-
-.ui.block.header {
-  background-color: var(#f77f00);
+/* navbar */
+.navbar {
+  padding: 20px;
+  margin: 20px;
 }
 
 .small__logo {
@@ -21,6 +20,7 @@
   margin: 20px;
 }
 
+<<<<<<< HEAD
 
 /* Reviews Page*/
 #comments {
@@ -29,4 +29,6 @@
 }
 
 
+=======
+>>>>>>> 420c172d28d980eb9f832fa5c4f02a7ced765939
 /*# sourceMappingURL=main.css.map */

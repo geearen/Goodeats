@@ -3,21 +3,47 @@
 *{
   box-sizing: border-box;
 }
-/* navbar */
-.navbar{
-  padding:20px;
-  margin:20px;
 
-  .ui.huge.menu{
-    
+.ui.inverted.segment, .ui.primary.inverted.segment{
+  background-color: var($prussian-blue);
+  margin:0px;
+  padding:50px;
+
+}
+.top{
+  display:flex;
+  justify-content: center;
+
+
+  .brand__logo{
+    padding: 20px;
+    margin:10px;
   }
 }
 
-.small__logo{
-  width: 80px;
-  height: auto;
+
+/* navbar */
+.navbar{
+  padding: 0px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
+
+  .item{
+    padding:0px 10px 0px 10px;
+  }
+
+  .small__logo{
+    width: 80px;
+    height: auto;
+  }
 }
 
+.spotlight{
+  height: 50vh;
+}
+
+.allRecipes{
+  background-color: var($orange);
+}
 
 /* NEW PAGE */
 .form{

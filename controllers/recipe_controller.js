@@ -15,6 +15,7 @@ router.get("/", function (request, response) {
         request.error = error;  
       };
 
+
       Recipe.find({}, 
         function(error, foundCategory){
           if(error){
@@ -30,6 +31,8 @@ router.get("/", function (request, response) {
           console.log(context)
         return response.render("recipes/index",context);
       });
+
+
     });  
 });
 

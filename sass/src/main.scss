@@ -3,20 +3,24 @@
 *{
   box-sizing: border-box;
 }
+
 .ui.inverted.segment, .ui.primary.inverted.segment{
   background-color: var($prussian-blue);
   margin:0px;
   padding:50px;
+
 }
 .top{
   display:flex;
   justify-content: center;
+
 
   .brand__logo{
     padding: 20px;
     margin:10px;
   }
 }
+
 
 /* navbar */
 .navbar{

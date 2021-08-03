@@ -3,14 +3,16 @@
 *{
   box-sizing: border-box;
 }
+/* navbar */
+.navbar{
+  padding:20px;
+  margin:20px;
 
-.ui.center.aligned.segment.spotlight{
-  background-color: var($orange);
+  .ui.huge.menu{
+    
+  }
 }
 
-.ui.block.header{
-  background-color: var($orange);
-}
 
 .small__logo{
   width: 80px;

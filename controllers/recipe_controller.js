@@ -14,13 +14,29 @@ router.get("/", function (request, response) {
         console.log(error);
         request.error = error;  
       };
-      
-      const context = {
-        recipes:allRecipes,
-      };
-      return response.render("recipes/index",context);
+
+
+      Recipe.find({}, 
+        function(error, foundCategory){
+          if(error){
+            console.log(error);
+            request.error = error;
+            return next();
+          };
+
+          const context = {
+            recipes:allRecipes,
+            categories:foundCategory,
+          };
+          console.log(context)
+        return response.render("recipes/index",context);
+      });
+
+
     });  
 });
+
+/* Category Route */
 
 
 /* New Route */
@@ -33,7 +49,7 @@ router.get("/new", function(request, response){
 /* Create Route */
 router.post("/", function(request, response){
   // response.send("I AM CREATE PAGE");
-  Recipe.create(req.body, function(error, createdRecipe){
+  Recipe.create(request.body, function(error, createdRecipe){
     if(error){
       console.log(error);
       request.error = error;

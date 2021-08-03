@@ -6,20 +6,26 @@
 <body>
   <%- include("../partials/navbar/_navbar") %> 
 
-<div class="ui container">
+
+<div class="spotlight ui container">
+
+
 
   <div class="ui center aligned very padded ">
     <div class="ui two column very relaxed grid container">
       <% function randomRecipe () { %>
+
+        <h1 class="ui center aligned header">Recipe Spotlight</h1>
+        
         <% const rand = Math.floor(Math.random()*recipes.length) %> 
         <% const randRecipe = recipes[rand] %> 
         
-        <div class=" orange column">
-          <h1 class="ui center aligned header">Recipe Spotlight</h1>
+        <div class="column">
           <h1 class="spotlight__title"><%= randRecipe.title %> </h1>
         </div>
         
-        <div class="orange column">
+        <div class="column">
+
           <a href="" class="ui medium image">
             <img src="<%= randRecipe.image %> " class= "spotlight__image">
           </a>
@@ -37,28 +43,54 @@
 </div>
 
 
-<div class="ui three column grid">
-  <% for( let index = 0; index < recipes.length; index++ ) { %>
-    <% const recipe = recipes[index] %> 
-    <div class="column">
-      <div class="ui segment">
-        <div class="ui blue ribbon label">
-          <i class="spoon icon"></i> <%= recipe.category %> 
-        </div>
-        <a href="/recipes/<%= recipe.id %> " class="">
-          <img class ="ui large rounded image"
-          src="<%= recipe.image %>" 
-          alt= "image placeholder"
-          >
+<section class="allRecipes">
+
+  
+    <div class="ui pointing menu">
+        <a href="/recipes/" class="active item">
+          All Recipes
+        </a>
+        <a href="/recipes/breakfast" class="item">
+          Breakfast
+        </a>
+        <a href="/recipes/lunch" class="item">
+          Lunch
+        </a>
+        <a href="/recipes/dinner" class="item">
+          Dinner
+        </a>
+        <a href="/recipes/dessert" class="item">
+          Dessert
         </a>
       </div>
+
+
+
+
+
+<div class="ui grid">
+  <div class="ui three column grid">
+    <% for( let index = 0; index < recipes.length; index++ ) { %>
+      <% const recipe = recipes[index] %> 
+      <div class="column">
+        <div class="ui">
+          <div class="ui blue ribbon label">
+            <i class="spoon icon"></i> <%= recipe.category %> 
+          </div>
+          <a href="/recipes/<%= recipe.id %> " class="">
+            <img class ="ui large rounded image"
+            src="<%= recipe.image %>" 
+            alt= "image placeholder"
+            >
+          </a>
+        </div>
+      </div>
+      
+      <% } %>
     </div>
-    
-    <% } %>
   </div>
+  </section>
 
 
-
-
-</body>
+  </body>
 </html>

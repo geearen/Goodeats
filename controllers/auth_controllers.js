@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { User } = require("../models");
 
 /* Register --- Get Route */
 router.get("/register", function (request,response){
@@ -29,3 +30,4 @@ router.get("/logout", function (request, response) {
 });
 
 module.exports = router;
+

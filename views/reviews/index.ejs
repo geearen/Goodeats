@@ -34,8 +34,9 @@
     </section>
 
 <!-- This is where the reviews will go  -->
-    
-<section class="ui row">
+
+
+<section class="ui container">
   <% reviews.forEach(review => { %>
     <div class="ui comments">
       <div class="comment">
@@ -52,7 +53,7 @@
             </div>
           </div>
           <div class="text">
-            <%= review.conten
+            <%= review.content %>
           </div>
         </div>
       </div>

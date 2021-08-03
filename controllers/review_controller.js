@@ -41,7 +41,7 @@ router.delete("/:id", function(request, response){
       console.log(error)
       req.error = error;
       return next();
- q   }
+     }
  return response.redirect("/reviews")
   })
 });

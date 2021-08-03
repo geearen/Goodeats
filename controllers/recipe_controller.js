@@ -33,7 +33,7 @@ router.get("/new", function(request, response){
 /* Create Route */
 router.post("/", function(request, response){
   // response.send("I AM CREATE PAGE");
-  Recipe.create(req.body, function(error, createdRecipe){
+  Recipe.create(request.body, function(error, createdRecipe){
     if(error){
       console.log(error);
       request.error = error;

@@ -37,29 +37,53 @@
   </h3>
 </div>
 
+<section class="allRecipes">
 
-<div class="ui three column grid">
-  <% for( let index = 0; index < recipes.length; index++ ) { %>
-    <% const recipe = recipes[index] %> 
-    <div class="column">
-      <div class="ui segment">
-        <div class="ui blue ribbon label">
-          <i class="spoon icon"></i> <%= recipe.category %> 
-        </div>
-        <a href="/recipes/<%= recipe.id %> " class="">
-          <img class ="ui large rounded image"
-          src="<%= recipe.image %>" 
-          alt= "image placeholder"
-          >
+  
+    <div class="ui pointing menu">
+        <a href="/recipes/" class="active item">
+          All Recipes
+        </a>
+        <a href="/recipes/breakfast" class="item">
+          Breakfast
+        </a>
+        <a href="/recipes/lunch" class="item">
+          Lunch
+        </a>
+        <a href="/recipes/dinner" class="item">
+          Dinner
+        </a>
+        <a href="/recipes/dessert" class="item">
+          Dessert
         </a>
       </div>
+
+
+
+
+<div class="ui grid">
+  <div class="ui three column grid">
+    <% for( let index = 0; index < recipes.length; index++ ) { %>
+      <% const recipe = recipes[index] %> 
+      <div class="column">
+        <div class="ui">
+          <div class="ui blue ribbon label">
+            <i class="spoon icon"></i> <%= recipe.category %> 
+          </div>
+          <a href="/recipes/<%= recipe.id %> " class="">
+            <img class ="ui large rounded image"
+            src="<%= recipe.image %>" 
+            alt= "image placeholder"
+            >
+          </a>
+        </div>
+      </div>
+      
+      <% } %>
     </div>
-    
-    <% } %>
   </div>
+  </section>
 
 
-
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
-const {Recipe} = require("../models");
-const Review = require("../models/Review");
+const {Recipe,Review} = require("../models");
+
 
 
 /* Index Route */
@@ -19,7 +19,7 @@ router.get("/", function (request, response) {
         recipes:allRecipes,
       };
       return response.render("recipes/index",context);
-    });
+    });  
 });
 
 

@@ -1,13 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
 * {
   box-sizing: border-box;
 }
 
-.ui.center.aligned.segment.spotlight {
-  background-color: var(#f77f00);
-}
-
-.ui.block.header {
-  background-color: var(#f77f00);
+/* navbar */
+.navbar {
+  padding: 20px;
+  margin: 20px;
 }
 
 .small__logo {
@@ -20,9 +19,5 @@
   padding: 20px;
   margin: 20px;
 }
-
-
-
-
 
 /*# sourceMappingURL=main.css.map */

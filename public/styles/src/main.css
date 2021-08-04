@@ -59,9 +59,22 @@ body {
 }
 
 /* SHOW PAGE */
+#reviews_container {
+  background-color: #eae2b7;
+}
+
+.header_bar {
+  background-color: #FCBF49;
+  color: #003049;
+  font-family: "Comfortaa", cursive;
+  margin: 50px;
+  padding: 50px;
+}
+
 .ui.block.header {
   background-color: #FCBF49;
   color: #003049;
+  font-family: "Comfortaa", cursive;
 }
 
 .ui.grid {
@@ -73,32 +86,30 @@ body {
   padding: 20px;
 }
 
+.form {
+  border: 2px solid #003049;
+}
+
 .ui_segment {
   border-radius: 12px;
 }
 
 .ui.segment:last-child {
-  border: 2px solid #eae2b7;
-}
-
-.ui.block.header {
-  padding: 20px;
-  margin: 20px;
+  border: 2px solid #003049;
 }
 
 .ui.grid .row {
   color: #003049;
-  padding: 20px;
+  padding: 20px 100px;
 }
 
 .ui.large.image, .ui.large.images .image, .ui.large.images img, .ui.large.images svg {
   overflow: hidden;
-  width: 1000px;
+  width: 700px;
 }
 
 article, aside, footer, header, nav, section {
   display: block;
-  background-color: #003049;
 }
 
 /*# sourceMappingURL=main.css.map */

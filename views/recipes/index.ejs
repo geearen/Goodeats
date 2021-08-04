@@ -6,30 +6,25 @@
 <body>
   <%- include("../partials/navbar/_navbar") %> 
 
+  <h1 id="spotlight__header">Recipe Spotlight</h1>
 <div class="spotlight ui container">
-
   <div class="ui center aligned very padded ">
     <div class="ui two column very relaxed grid container">
       <% if (!isEmpty) { %>
-      
         <% function randomRecipe () { %>
-          <h1 class="ui center aligned header">Recipe Spotlight</h1>
-          
           <% const rand = Math.floor(Math.random()*recipes.length) %> 
           <% const randRecipe = recipes[rand] %> 
-          
           <div class="column">
             <h1 class="spotlight__title"><%= randRecipe.title %> </h1>
           </div>
-          
           <div class="column">
             <a href="" class="ui medium image">
               <img src="<%= randRecipe.image %> " class= "spotlight__image">
             </a>
+          </div>
             <% } %>
             <% randomRecipe(); %> 
             <% } %>
-        </div>
       </div>
     </div>
   </div>

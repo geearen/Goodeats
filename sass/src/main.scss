@@ -70,22 +70,26 @@ body{
 /* SHOW PAGE */
 
 #reviews_container {
-  background-color: $lemon-meringue;;
+  background-color: $lemon-meringue;
 }
 
 .header_bar {
-  background-color:$maximum-yellow-red;
+  background-color:$lemon-meringue;
   color:$prussian-blue;
   font-family:$font-main;
   margin:50px;
   padding:50px;
 }
 .ui.block.header {
-  background-color:$maximum-yellow-red;
+  background-color:$lemon-meringue;
   color:$prussian-blue;
   font-family:$font-main;
-
 }
+
+// section {
+//   margin: 20px;
+//   padding: 20px;
+// }
 
 
 .ui.grid {

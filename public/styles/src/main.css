@@ -64,7 +64,7 @@ body {
 }
 
 .header_bar {
-  background-color: #FCBF49;
+  background-color: #eae2b7;
   color: #003049;
   font-family: "Comfortaa", cursive;
   margin: 50px;
@@ -72,7 +72,7 @@ body {
 }
 
 .ui.block.header {
-  background-color: #FCBF49;
+  background-color: #eae2b7;
   color: #003049;
   font-family: "Comfortaa", cursive;
 }

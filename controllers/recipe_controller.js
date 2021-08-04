@@ -19,7 +19,6 @@ router.get("/", function (request, response) {
       recipes:allRecipes,
       isEmpty:false,
     };
-    console.log(context.recipes);
     return response.render("recipes/index",context);
   });
 });

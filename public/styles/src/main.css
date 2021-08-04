@@ -45,9 +45,14 @@
   margin: 20px;
 }
 
+/* SHOW PAGE */
+.ui.block.header {
+  background-color: #FCBF49;
+  color: #003049;
+}
+
 .ui.grid {
-  margin: 50px;
-  padding: 50px;
+  margin-top: 1px;
 }
 
 #instructions_list {
@@ -66,6 +71,21 @@
 .ui.block.header {
   padding: 20px;
   margin: 20px;
+}
+
+.ui.grid .row {
+  color: #003049;
+  padding: 20px;
+}
+
+.ui.large.image, .ui.large.images .image, .ui.large.images img, .ui.large.images svg {
+  overflow: hidden;
+  width: 1000px;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+  background-color: #003049;
 }
 
 /*# sourceMappingURL=main.css.map */

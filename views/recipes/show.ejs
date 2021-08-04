@@ -15,13 +15,13 @@
             <div class="equal width row">
               <div class="column">
                 <figure class="content">
-                  <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image">
+                  <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image" class="show_image">
                 </figure>
               </div>
-              <div class="column">
+              <div class="column" class= "show_image_container">
                 <div class="column" id="ingredients_list">
                   <div class="ui bulleted list middle aligned">
-                    <h3 class = "ui header"> Ingredients</h3>
+                    <h3 class = "ui large centered header"> Ingredients</h3>
                     <% recipe.ingredients.forEach((ingredient)=> { %>
                       <div class="item">
                         <%= ingredient %>
@@ -36,14 +36,13 @@
                       <button class="ui button">Delete</button>
                     </form>
                   </div>
-
                 </div>
               </div>
               <div class="ui colum centered grid">
                 <div class="column">
                   <div class="column" id ="instructions_list">
                     <div class="ui ordered list">
-                      <h3 class = "ui header"> Instructions</h3>
+                      <h3 class = "ui large centered header"> Instructions</h3>
                       <% recipe.instructions.forEach(instruction=>{ %>
                         <div class="item">
                           <%= instruction %>
@@ -54,20 +53,20 @@
                 </div>
               </div>
             </div>
-          </div
+          </div>
 
 
           
 
           <!-- THIS IS THE REVIEWS SECTION -->
 
-
+<section>
       <section>
         <div>
           <h1>Comment section</h1>
         </div>
       </section>
-      <br><br>
+     
 
       
       <div class="ui left floated segment">
@@ -96,15 +95,9 @@
         </section>
         </div>
 
-        <br><br>
 
         <!-- This is where the reviews will go  -->
 
-
-
-
-
-<br><br>
 
       <div class="ui three column grid">
         <% reviews.forEach(review=> { %>
@@ -133,9 +126,7 @@
         </div>
         <% }) %>
      
-  </body>
 
-</html>
+        
   </body>
-
 </html>

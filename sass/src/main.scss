@@ -2,7 +2,9 @@
 
 *{
   box-sizing: border-box;
-}
+  // border: 1px solid black;
+  }
+
 body{
   font-family: $font-main;
   font-size:12px
@@ -64,9 +66,16 @@ body{
   margin: 20px;
 }
 
+
+/* SHOW PAGE */
+
+.ui.block.header {
+  background-color:$maximum-yellow-red;
+  color:$prussian-blue;
+}
+
 .ui.grid {
-  margin: 50px;
-  padding:50px;
+  margin-top: 1px;
 } 
 
 #instructions_list{
@@ -86,3 +95,18 @@ body{
   margin:20px;
 }
 
+.ui.grid .row {
+  color:$prussian-blue;
+  padding: 20px;
+}
+
+
+.ui.large.image, .ui.large.images .image, .ui.large.images img, .ui.large.images svg {
+  overflow: hidden;
+  width :1000px;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+  background-color: $prussian-blue;
+}

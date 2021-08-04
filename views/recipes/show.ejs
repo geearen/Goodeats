@@ -10,44 +10,6 @@
       </div>
     </section>
     
- 
-    <div class="ui two column centered grid" id = "show_Container">
-      <div class="four column centered row">
-        <div class="column">
-          <figure class="content">
-            <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image">
-          </figure>
-        </div>
-        <div class="column" id ="ingredients_list">
-          <div class="ui bulleted list middle aligned">
-            <h3 class = "ui header"> Ingredients</h3>
-            <% recipe.ingredients.forEach((ingredient)=> { %>
-              <div class="item">
-                <%= ingredient %>
-              </div>
-                <% }) %>
-              </div>
-            </div>
-          </div>
-          <div class="column" id ="instructions_list">
-            <div class="ui ordered list">
-              <h3 class = "ui header"> Instructions</h3>
-              <% recipe.instructions.forEach(instruction=>{ %>
-                <div class="item">
-                  <%= instruction %>
-                </div>
-                <% }) %>
-              </div>
-            </div>
-            <div class="content">
-              <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
-              
-              <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-                <a href="" class="ui button">Delete</a>
-              </form>
-            </div>
-          </div>
-
 
           <div class="ui equal width grid">
             <div class="equal width row">
@@ -66,6 +28,15 @@
                       </div>
                       <% }) %>
                   </div>
+
+                  <div class="content">
+                    <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
+
+                    <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+                      <button class="ui button">Delete</button>
+                    </form>
+                  </div>
+
                 </div>
               </div>
               <div class="ui colum centered grid">
@@ -123,34 +94,10 @@
             </div>
           </form>
         </section>
-
         </div>
-        <div class="column">
-          <div class="ui ordered list">
-            <% recipe.instructions.forEach(instruction=>{ %>
-              <div class="item">
-                <%= instruction %>
-              </div>
-              <% }) %>
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
-
-        <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-          <div class="ui button">Delete</div>
-        </form>
-      </div>
-
-
-
-
-
-
 
         <br><br>
-    </div>
+
         <!-- This is where the reviews will go  -->
 
 

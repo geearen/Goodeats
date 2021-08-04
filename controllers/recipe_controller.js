@@ -14,6 +14,7 @@ router.get("/", function (request, response) {
       console.log(error);
       request.error = error;  
     };
+    
     const context = {
       recipes:allRecipes,
       isEmpty:false,

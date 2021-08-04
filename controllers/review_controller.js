@@ -28,7 +28,7 @@ router.post("/", function(request, response){
       console.log(error)
       req.error = error;
       return next();
-    }
+    }  
    return response.redirect("/reviews")
   });
 });

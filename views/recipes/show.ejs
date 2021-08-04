@@ -1,85 +1,148 @@
 <html lang="en">
 <%- include("../partials/head/_head") %>
 
-<body>
-  <%- include("../partials/navbar/_navbar") %>
+  <body>
+    <%- include("../partials/navbar/_navbar") %>
 
-  <section>
-    <div>
-      <h1> Recipe Show Page</h1>
-    </div>
-  </section>
+      <section>
+        <div>
+          <h1> Recipe Show Page</h1>
+        </div>
+      </section>
 
-  <div class="ui container recipe">
-    <div class="content">
-      <div class="header recipe_title">
-        <%= recipe.title %> 
-      </div>
-    </div>
-    
-    <figure class="content">
-      <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image">
-    </figure>
-    
-    <div class="ui bulleted list">
-      <% recipe.ingredients.forEach((ingredient) => { %>
-        <div class="item"><%= ingredient %> </div>
-      <% }) %>
-    </div>
-
-    <div class="ui ordered list">
-      <% recipe.instructions.forEach(instruction =>{ %>
-        <div class="item"><%= instruction %></div>
-      <% }) %> 
-    </div>
-    
-    <div class="content">  
-      <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
-      
-      <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-        <a href=""class="ui button">Delete</a>
-      </form>
-    </div>
-  </div>
-
-
-
-    <section>
-      <div>
-        <h1>Comment section</h1>
-      </div>
-    </section>
-
-    <% reviews.forEach(review => { %>
-      <div class="ui veritcally divided gird">
-        <div class="two column row">
-          <div class="three wide column">
-            <img class="ui circular mini image" src="https://picsum.photos/200" alt="avatar">
+      <div class="ui container recipe">
+        <div class="content">
+          <div class="header recipe_title">
+            <%= recipe.title %>
           </div>
+        </div>
 
-          <div class="column">
-            <div class="ui comments">
-              <div class="comment">
-                <div class="content">
-                  <a href="" class="author user"> Allen Gonzales</a>
-                  <div class="metadata">
-                    <div class="date"> <%= new Date(review.createdAt).toLocaleString() %> </div>
-                    <div class="rating">
-                      <i class="star icon"></i>
-                      <%= review.rating %>
-                    </div>
-                  </div>
-                  <div class="text">
-                    <%= review.content %> 
-                  </div>
-                </div>
-              </div>
+        <figure class="content">
+          <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image">
+        </figure>
+
+        <div class="ui bulleted list">
+          <% recipe.ingredients.forEach((ingredient)=> { %>
+            <div class="item">
+              <%= ingredient %>
             </div>
+            <% }) %>
+        </div>
+
+        <div class="ui ordered list">
+          <% recipe.instructions.forEach(instruction=>{ %>
+            <div class="item">
+              <%= instruction %>
+            </div>
+            <% }) %>
+        </div>
+
+        <div class="content">
+          <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
+
+          <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+            <a href="" class="ui button">Delete</a>
+          </form>
+        </div>
+      </div>
+
+
+      <br><br><br><br><br>
+
+
+      <section>
+        <div>
+          <h1> Recipe Show Page</h1>
+        </div>
+      </section>
+
+      <div class="ui container recipe">
+        <div class="content">
+          <div class="header recipe_title">
+            <%= recipe.title %>
           </div>
         </div>
       </div>
-      <div class="ui hidden divider"></div>
-      <% }) %> 
+      <div class="ui two column centered grid">
+        <div class="four column centered row">
+          <div class="column">
+            <figure class="content">
+              <img src="<%= recipe.image%> " alt="recipe image" class="ui large rounded image">
+            </figure>
+          </div>
+          <div class="column">
+            <div class="ui bulleted list middle aligned">
+              <% recipe.ingredients.forEach((ingredient)=> { %>
+                <div class="item">
+                  <%= ingredient %>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui ordered list">
+            <% recipe.instructions.forEach(instruction=>{ %>
+              <div class="item">
+                <%= instruction %>
+              </div>
+              <% }) %>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
 
-</body>
+        <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+          <a href="" class="ui button">Delete</a>
+        </form>
+      </div>
+
+
+
+
+
+
+
+      <br><br><br><br><br>
+
+
+
+
+      <section>
+        <div>
+          <h1>Comment section</h1>
+        </div>
+      </section>
+      <br><br>
+
+      <div class="ui three column grid">
+        <% reviews.forEach(review=> { %>
+          <div class="column">
+            <div class="ui segment">
+              <a class="avatar">
+                <img class="ui small image centered" src="https://avatarfiles.alphacoders.com/547/54795.jpg"></a>
+              <div class="ui center aligned container ">
+                <a class="User">Username</a>
+                <div class="metadata">
+                  <div class="date">"Newdatelocalestring"</div>
+                  <div class="rating">
+                    <i class="star icon"></i>
+                    5 Faves
+                  </div>
+                </div>
+                <div class="text">
+                  <%= review.content %>
+                </div>
+                <form action="/reviews/?_method=DELETE" method="POST">
+                  <a href="../recipes/" class="ui black button">Delete</a>
+                </form>
+              </div>
+              </form>
+            </div>
+          </div>
+          <% }) %>
+
+  </body>
+
 </html>

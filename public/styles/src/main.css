@@ -89,10 +89,16 @@ body {
   background-color: #003049;
 }
 
-.login_container {
-  display: flex;
-  justify-content: center;
+#login_form {
+  display: grid;
+  place-items: center;
 }
+#login_form .login_container {
+  min-width: 800px;
+  padding: 20px;
+  margin: 20px;
+}
+
 /* REGISTER PAGE */
 #register_form {
   display: grid;

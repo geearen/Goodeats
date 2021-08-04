@@ -38,8 +38,28 @@ router.post("/register", async function(request,response){
 });
 
 /* Login --- POST route */
-router.post("/login", function (request, response) {
-  response.send("I LOG IN")
+router.post("/login", async function (request, response) {
+  // response.send("I LOG IN")
+  try{
+    const foundUser = await User.findOne({email:request.body.email});
+    console.log(foundUser);
+    if(!foundUser){
+      return response.redirect("/register");
+    }
+
+    const match = await bcrypt.compare(request.body.password, foundUser.password);
+    if(!match){
+      return response.send("Password invalid"); //need fix
+    }
+    request.session.currentUser={
+      id:foundUser._id,
+      username:foundUser.username,
+    }
+    return response.redirect("/recipes");
+  }catch(error){
+    console.log(error);
+    response.send(error);
+  }
 });
 
 /* LOG OUT --- GET */

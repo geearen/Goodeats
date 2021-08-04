@@ -16,7 +16,7 @@
             <div class="ui button" id="editIngredients">Add more ingredients </div>
             <div class="ui button" id="editInstructions">Add more instructions</div><br>
 
-            <form class="ui form" action="/recipe" <%=recipe.id %>?_method="PUT" method="POST">
+            <form class="ui form" action="/recipes/<%=recipe.id %>?_method=PUT" method="POST">
               <div class="field">
                 <label for="title">Recipe Title </label>
                 <input type="text" name="title" id="recipe-title" value="<%= recipe.title %> ">
@@ -46,14 +46,17 @@
                       <input type="text" name="instructions" value="<%= instruction %> ">
                     </div>
                     <% }) %>
-                      <div class="editInstructions"></div> <br>
+                      <div class="editInstructions"></div>
 
                       <div class="content">
                         <button class="positive ui button ">Edit</button>
-                        <a href="/recipes/<%= recipe.id %> " class="negative ui button">
-                          Cancel
-                        </a>
                       </div>
+            </form>
+            <div class="content">
+              <a href="/recipes/<%= recipe.id %> " class="negative ui button">
+                Cancel
+              </a>
+            </div>
           </section>
         </div>
       </div>

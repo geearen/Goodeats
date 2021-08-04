@@ -63,11 +63,12 @@
               <div class="text">
                 <%= review.content %>
               </div>
-              <form action="/reviews/?_method=DELETE" method="POST">
-                <a href="../recipes/" class="ui black button">Delete</a>
+
+              <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button class="ui red button">Delete</button>
+
               </form>
             </div>
-            </form>
           </div>
         </div>
         <% }) %>

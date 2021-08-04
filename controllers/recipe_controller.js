@@ -9,35 +9,41 @@ const {Recipe,Review} = require("../models");
 /* Index Route */
 router.get("/", function (request, response) {
     // response.send("I AM INDEX");
-    Recipe.find({}, function (error, allRecipes){
-      if(error){
-        console.log(error);
-        request.error = error;  
-      };
-
-
-      Recipe.find({}, 
-        function(error, foundCategory){
-          if(error){
-            console.log(error);
-            request.error = error;
-            return next();
-          };
-
-          const context = {
-            recipes:allRecipes,
-            categories:foundCategory,
-          };
-          console.log(context)
-        return response.render("recipes/index",context);
-      });
-
-
-    });  
+  Recipe.find({}, function (error, allRecipes){
+    if(error){
+      console.log(error);
+      request.error = error;  
+    };
+    const context = {
+      recipes:allRecipes,
+      isEmpty:false,
+    };
+    console.log(context.recipes);
+    return response.render("recipes/index",context);
+  });
 });
 
 /* Category Route */
-
+router.get("/filter/:category", function (request,response, next){
+      Recipe.find({category:request.params.category}, 
+        function (error, filteredRecipes){
+        if(error){
+          console.log(error);
+          request.error = error;
+        };
+        let context ={};
+        if(filteredRecipes.length == 0){
+          // return next();
+          context = {isEmpty:true}
+        } else{
+          context = {
+            recipes: filteredRecipes,
+            isEmpty:false,
+          };
+        }
+        return response.render("recipes/index", context);
+    });
+});
 
 /* New Route */
 router.get("/new", function(request, response){

@@ -1,12 +1,15 @@
 /* External Modules */
 const express = require("express");
 const methodOverride = require("method-override");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+require("dotenv").config();
 
 /* Module Instance */
 const app = express(); 
 
 /* PORT */
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 /* Internal Modules */
 const controllers = require("./controllers");
@@ -14,14 +17,36 @@ const controllers = require("./controllers");
 /* App Config */
 app.set("view engine", "ejs");
 
+/* Session Controller */
+app.use(session({
+  store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
+  secret: process.env.SECRET,
+  resave:false,
+  saveUninitialized:false,
+  cookie:{
+    maxAge:1000*60*60*24*7*2,
+  },
+})
+);
 /* Middleware */
+app.use(function (request,response,next){
+  response.locals.user = request.session.currentUser;
+  return next();
+});
+
+app.use(require("./utils/navlinks"));
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
-
 /* Custom Middleware */
 app.use(require("./utils/logger"));
+
+const authRequired = function(request,response,next){
+  if(!request.session.currentUser){
+    return response.redirect("/login");
+  }
+}
 
 /*  Routes */
 app.use("/", controllers.auth);

@@ -33,7 +33,6 @@ body{
   
   .ui.menu{
     font-family: $font-main;
-
   }
 
   .small__logo{
@@ -44,7 +43,12 @@ body{
 /* Index page */
 .spotlight{
   height: 50vh;
-  
+  .spotlight__title{
+    font-family: $font-header;
+    font-size: 8em;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
 }
 #spotlight__header{
   position:absolute;
@@ -53,13 +57,64 @@ body{
 }
 
 
-
+/* Bottom of Index */
 .allRecipes{
-  background-color: $orange;
+  padding: 0px 20px 0px 20px;
+
+  .ui.grid.bottom__show{
+    margin:5px;
+    padding: 0px 20px 0px 20px;
+  }
+  .ui.inverted.secondary.pointing.menu.bottom__nav{
+  margin:0px;
+  padding:0px;
+  padding-bottom: 10px;
+  }
+  .ui.grid.bottom__show{
+    background-color: $lemon-meringue;
+
+    .ui.column.segment.border_image{
+      min-width:200px;
+      max-width:400px;
+      margin:20px 14px 20px 14px; 
+      padding:14px;
+      
+    }
+    .ui.blue.ribbon.label{
+      margin-bottom: 5px;
+    }
+  }
+  #recipe_image{
+    width: 400px;
+    height: auto;
+  }
 }
 
+/* LOGIN PAGE */
+.login_register_body{
+  background-color: $prussian-blue;
+}
+#login_form{
+  display: grid;
+  place-items:center;
 
+  .login_container{
+    min-width:800px;
+    padding: 20px;
+    margin: 20px;
+  }
+}
 
+/* REGISTER PAGE */
+#register_form{
+  display: grid;
+  place-items:center;
+  .ui.form.segment{
+    min-width:800px;
+    padding: 20px;
+    margin: 20px;
+  }
+}
 /* NEW PAGE */
 .form{
   padding: 20px;

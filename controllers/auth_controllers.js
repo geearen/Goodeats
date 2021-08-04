@@ -63,8 +63,15 @@ router.post("/login", async function (request, response) {
 });
 
 /* LOG OUT --- GET */
-router.get("/logout", function (request, response) {
-  response.send("I LOGGED OUT")
+router.get("/logout", async function (request, response) {
+  // response.send("I LOGGED OUT")
+  try{
+    await request.session.destroy();
+    return response.redirect("/login");
+  }catch(error){
+    console.log(error);
+    return response.send(error);
+  }
 });
 
 module.exports = router;

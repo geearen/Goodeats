@@ -29,6 +29,7 @@ app.use(session({
 })
 );
 /* Middleware */
+
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));

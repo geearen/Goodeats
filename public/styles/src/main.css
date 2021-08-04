@@ -94,6 +94,16 @@ body {
   justify-content: center;
 }
 /* REGISTER PAGE */
+#register_form {
+  display: grid;
+  place-items: center;
+}
+#register_form .ui.form.segment {
+  min-width: 800px;
+  padding: 20px;
+  margin: 20px;
+}
+
 /* NEW PAGE */
 .form {
   padding: 20px;

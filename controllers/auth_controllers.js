@@ -19,7 +19,7 @@ router.get("/login", function (request,response){
 router.post("/register", async function(request,response){
   // response.send("I CREATED MY ACCOUNT")
   try{
-    const foundUser = await User.exists({username:request.body.username})
+    const foundUser = await User.exists({email:request.body.email})
     if(foundUser){
       return response.redirect("/login");
     };

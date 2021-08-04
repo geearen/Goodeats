@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("../partials/head/_head") %> 
+<%- include("../partials/head/_head") %>
 
 
-    <body class="login_register_body">
-      <%- include("../partials/navbar/_navbar") %> 
+  <body class="login_register_body">
+    <%- include("../partials/navbar/_navbar") %>
+      <section id="register_form">
 
-      <form action="/register" method="POST" class="ui form segment" >
-        <p>Let's go ahead and get you signed up.</p>
-        <div class="two fields">
-          <div class="field">
-            <label>First Name</label>
-            <input 
-            placeholder="First Name" 
-            name="firstName" 
-            type="text"
-            >
+        <form action="/register" method="POST" class="ui form segment">
+          <p>Let's go ahead and get you signed up.</p>
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input 
+              placeholder="First Name" 
+              name="firstName" 
+              type="text">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input 
+              placeholder="Last Name" 
+              name="lastName" 
+              type="text">
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Username</label>
+              <input 
+              placeholder="Username" 
+              name="username" 
+              type="text">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input 
+              placeholder="email@email.com" 
+              name="email" 
+              type="text">
+            </div>
           </div>
           <div class="field">
-            <label>Last Name</label>
+            <label>Password</label>
             <input 
-            placeholder="Last Name" 
-            name="lastName" 
-            type="text"
-            >
+            type="password" 
+            name="password" 
+            placeholder="*******">
           </div>
-        </div>
-        <div class="field">
-          <label>Username</label>
-          <input 
-          placeholder="Username" 
-          name="username" 
-          type="text"
-          >
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input 
-          type="password" 
-          name="password"
-          >
-        </div>
-        <div class="inline field">
-        <div class="ui orange submit button">Submit</div>
-      </form>
-</body>
+          <div class="inline field">
+            <button class="ui orange submit button">Submit</button>
+        </form>
+      </section>
+  </body>
+
 </html>

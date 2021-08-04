@@ -50,3 +50,26 @@
   padding: 20px;
   margin: 20px;
 }
+
+.ui.grid {
+  margin: 50px;
+  padding:50px;
+} 
+
+#instructions_list{
+  margin: 20px;
+  padding: 20px;
+}
+
+.ui_segment {
+  border-radius: 12px;
+}
+
+.ui.segment:last-child {
+  border: 2px solid $lemon-meringue;
+}
+.ui.block.header {
+  padding:20px;
+  margin:20px;
+}
+

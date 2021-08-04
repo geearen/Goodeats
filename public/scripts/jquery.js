@@ -42,12 +42,19 @@
 // })
 // ;
 
-
+/////ADD INSTRUCTIONS AND INGREDIENTS///////
 const addIngredients = () => {
   console.log("click")
   $(".ingredients").append('<input type="text" name="ingredients">')
 };
 
+const addInstructions = () => {
+  console.log("click")
+  $(".instructions").append('<input type="text" name="instructions">')
+};
+
+
+////////EDIT INSTRUCTIONS AND INGREDIENTS////////
 const editInstructions = () => {
   console.log("click")
   $(".editInstructions").append('<input type="text" name="instructions">')
@@ -60,12 +67,8 @@ const editIngredients = () => {
 };
 
 
-const addInstructions = () => {
-  console.log("click")
-  $(".instructions").append('<input type="text" name="instructions">')
-};
 
-
+///////EVENT LISTENERS//////////////
 $("#editInstructions").on("click", editInstructions);
 $("#editIngredients").on("click", editIngredients);
 $("#addIngredients").on("click", addIngredients);

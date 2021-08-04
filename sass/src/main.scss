@@ -57,7 +57,7 @@ body{
 }
 
 
-/* Buotom of Index */
+/* Bottom of Index */
 .allRecipes{
   padding: 0px 20px 0px 20px;
 
@@ -90,7 +90,20 @@ body{
   }
 }
 
+/* LOGIN PAGE */
+.login_register_body{
+  background-color: $prussian-blue;
+}
 
+.login_container{
+  display: flex;
+  justify-content: center;
+  #login_form{
+  
+  }
+}
+
+/* REGISTER PAGE */
 
 /* NEW PAGE */
 .form{

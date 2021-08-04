@@ -54,7 +54,7 @@ body {
   font-size: 8em;
 }
 
-/* Buotom of Index */
+/* Bottom of Index */
 .allRecipes {
   padding: 0px 20px 0px 20px;
 }
@@ -84,6 +84,16 @@ body {
   height: auto;
 }
 
+/* LOGIN PAGE */
+.login_register_body {
+  background-color: #003049;
+}
+
+.login_container {
+  display: flex;
+  justify-content: center;
+}
+/* REGISTER PAGE */
 /* NEW PAGE */
 .form {
   padding: 20px;

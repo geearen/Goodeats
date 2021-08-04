@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
 /* Register --- Get Route */
@@ -15,8 +16,25 @@ router.get("/login", function (request,response){
 });
 
 /* Register --- POST route */
-router.post("/register", function(request,response){
-  response.send("I CREATED MY ACCOUNT")
+router.post("/register", async function(request,response){
+  // response.send("I CREATED MY ACCOUNT")
+  try{
+    const foundUser = await User.exists({username:request.body.username})
+    if(foundUser){
+      return response.redirect("/login");
+    };
+
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(request.body.password, salt);
+    request.body.password = hash;
+
+    const newUser = await User.create(request.body);
+
+    return response.redirect("/login");
+  }catch(error){
+    console.log(err);
+    return response.send(error); //need fix
+  }
 });
 
 /* Login --- POST route */

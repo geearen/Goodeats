@@ -6,7 +6,7 @@
 
       <section class="header_Bar">
         <div>
-          <h1 class="ui block header">
+          <h1 class="ui header show_header">
             <%= recipe.title %>
           </h1>
         </div>
@@ -33,23 +33,19 @@
           <div class="ui column" class="show_image_container">
             <div class="ui column" id="ingredients_list">
               <div class="ui bulleted list middle aligned">
-                <h3 class="ui large centered header"> Ingredients</h3>
+                <h3 class="ui large centered header show_subheader"> Ingredients</h3>
                 <% recipe.ingredients.forEach((ingredient)=> { %>
                   <div class="item">
                     <%= ingredient %>
                   </div>
                   <% }) %>
               </div>
-
-
-
-
             </div>
           </div>
           <div class="column">
             <div class="column" id="instructions_list">
               <div class="ui ordered list">
-                <h3 class="ui large centered header"> Instructions</h3>
+                <h3 class="ui large centered header show_subheader"> Instructions</h3>
                 <% recipe.instructions.forEach(instruction=>{ %>
                   <div class="item">
                     <%= instruction %>
@@ -70,8 +66,8 @@
         <div class="ui center container">
           <section class="form">
             <div class="ui centered header">
-              <h2 class="ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
-              <p>Fill out the field below to submit your review!</p>
+              <h2 class="ui centered header show_subheader" id="raitings_header">Rate Your Favorite Recipe!</h2>
+              <p class="show_subheader">Fill out the field below to submit your review!</p>
             </div>
 
             <form action="/recipes/comment/<%= recipe.id  %>" method="POST" class="ui large form attached fluid segment">
@@ -126,8 +122,8 @@
                 </div>
               </div>
             </div>
-        </div>
-        <% }) %>
+            <% }) %>
+          </div>
 
 
   </body>

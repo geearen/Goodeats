@@ -160,8 +160,36 @@ body{
 
 /* SHOW PAGE */
 
-#reviews_container {
-  background-color: $lemon-meringue;
+h1 {
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.show_page_buttons {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.ui.list .list>.item, .ui.list>.item, ol.ui.list li, ul.ui.list li {
+  padding:10px;
+  font-size: larger;
+  line-height: 1.6;
+}
+
+.ui.segment:first-child {
+  background-color: beige;
+}
+
+.ui.segment, .ui.segments .segment {
+  font-family:$font-main ;
+}
+
+.ui.message .header {
+  font-family: $font-main;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .header_bar {
@@ -171,43 +199,30 @@ body{
   margin:50px;
   padding:50px;
 }
+
+.ui.floated.segment, .ui[class*="left floated"].segment {
+  border: 1px solid $prussian-blue;
+  margin-left:20px
+}
+
+
 .ui.block.header {
-  background-color:$lemon-meringue;
-  color:$prussian-blue;
+  background-color:$lemon-meringue ;
+  color:$prussian-blue;;
   font-family:$font-main;
 }
 
-// section {
-//   margin: 20px;
-//   padding: 20px;
-// }
-
-
-.ui.grid {
-  margin-top: 1px;
-} 
-
-
-#instructions_list{
-  margin: 20px;
-  padding: 20px;
+#reviews_header {
+  margin:50px;
+  padding:20px;
+  background-color:$prussian-blue;
+  color:$lemon-meringue;
 }
 
-.form {
-  border: 2px solid $prussian-blue;
-}
-
-.ui_segment {
-  border-radius: 12px;
-}
-
-.ui.segment:last-child {
-  border: 2px solid $prussian-blue;
-}
 
 .ui.grid .row {
   color:$prussian-blue;
-  padding: 20px 100px;
+  padding: 20px 50px 50px 50px;
 }
 
 
@@ -219,4 +234,8 @@ body{
 
 article, aside, footer, header, nav, section {
   display: block;
+}
+
+.content{
+  font-family:$font-main ;
 }

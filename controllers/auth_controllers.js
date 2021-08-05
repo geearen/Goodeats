@@ -4,12 +4,6 @@ const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
 
-router.get ("/", function (request,respond) {
-  respond.send("This is working")
-})
-
-
-
 /* Register --- Get Route */
 router.get("/register", function (request,response){
   // response.send("THIS IS THE REGISTER PAGE");

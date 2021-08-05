@@ -34,16 +34,17 @@
               <textarea 
               rows="3" 
               name="content"></textarea>
-            </div>
-              <select class="ui search dropdown">
-                <!-- <i class="dropdown icon"></i> -->
-                <option>Select A Recipe </option>
-                  <% recipes.forEach(recipe=> { %>
-                    <option value="<%= recipe.id %>">
-                      <%= recipe.title %>
-                    </option>
-                    <% }) %>
-                  </select>
+            </div> 
+            
+                <label for="label"> Select A Recipe </label>
+                  <select name="recipe" >
+                    <% recipes.forEach(recipe => { %>
+                      <option value="<%= recipe.id %>">
+                        <%= recipe.title %>
+                      </option>
+                      <% }) %>
+                    </select>
+
 
             <button class="ui orange button">Save</button>
             <a class="ui black button" href="../recipes/">Discard</a>
@@ -80,7 +81,7 @@
                 <div class="text">
                   <%= review.content %>
                 </div>
-                <a href="/recipes/<%= review.recipe.id %>">
+                <a href="/recipes/<%= review.recipe._id %>">
                   <%= review.recipe.title %>
                 </a>
                 <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
@@ -92,5 +93,4 @@
             <% }) %>
         </div>
   </body>
-s
 </html>

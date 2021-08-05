@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Review, Recipe} = require("../models");
+const { Review, Recipe } = require("../models");
 
 
 /* Index Route */
@@ -39,7 +39,7 @@ router.post("/", function(request, response){
       req.error = error;
       return next();
     }  
-  return response.redirect("/reviews")
+  return response.redirect("/reviews/")
   });
 });
 

@@ -14,16 +14,16 @@
 
 
       <div class="ui equal width stackable grid">
-        <div class="equal width row" class = "">
+        <div class="equal width row" class="">
           <div class="ui column">
             <figure class="content">
               <img src="<%= recipe.image%> " alt="recipe image" class="ui large centered rounded image"
                 class="show_image">
             </figure>
-            <section class ="show_page_buttons">
-            <a href="/recipes/<%= recipe.id %>/edit ">
-              <button class= "ui inverted orange button" >Edit</button>
-            </a>
+            <section class="show_page_buttons">
+              <a href="/recipes/<%= recipe.id %>/edit ">
+                <button class="ui inverted orange button">Edit</button>
+              </a>
 
               <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
                 <button class="ui inverted red button">Delete</button>
@@ -41,52 +41,46 @@
                   <% }) %>
               </div>
 
-          
-             
-              
+
+
+
             </div>
           </div>
-            <div class="column">
-              <div class="column" id="instructions_list">
-                <div class="ui ordered list">
-                  <h3 class="ui large centered header"> Instructions</h3>
-                  <% recipe.instructions.forEach(instruction=>{ %>
-                    <div class="item">
-                      <%= instruction %>
-                    </div>
-                    <% }) %>
-                </div>
+          <div class="column">
+            <div class="column" id="instructions_list">
+              <div class="ui ordered list">
+                <h3 class="ui large centered header"> Instructions</h3>
+                <% recipe.instructions.forEach(instruction=>{ %>
+                  <div class="item">
+                    <%= instruction %>
+                  </div>
+                  <% }) %>
               </div>
             </div>
+          </div>
         </div>
       </div>
 
 
-      
-<!-- N Attempt AT SHOW PAGE  -->
+
+      <!-- N Attempt AT SHOW PAGE  -->
 
 
 
       <!-- THIS IS THE REVIEWS SECTION -->
 
-    <div class="ui stackable section" id="reviews_container">
-      
-          <h2 class = "ui block centered header" id="reviews_header">Comment section</h2>
-      
+      <div class="ui stackable section" id="reviews_container">
 
-      <div class="ui center container">
-          <section class="form"> 
-          <div class="ui centered header">
-            
-              <h2 class = "ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
-            
-            <p>Fill out the field below to submit your review!</p>
-          </div>
+        <h2 class="ui block centered header" id="reviews_header">Comment section</h2>
 
-          <form action="/reviews" method="POST" class="ui large form attached fluid segment">
-            <div class="field">
-              <label for="label">Rating </label>
-              <input type="number" name="rating" min="0" max="5" placeholder="0-5">
+
+        <div class="ui center container">
+          <section class="form">
+            <div class="ui centered header">
+
+              <h2 class="ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
+
+              <p>Fill out the field below to submit your review!</p>
             </div>
 
             <form action="/reviews" method="POST" class="ui large form attached fluid segment">
@@ -98,6 +92,7 @@
                 <label>Short Text</label>
                 <textarea rows="3" name="content" placeholder="Leave a comment/review!"></textarea>
               </div>
+
               <div>
                 <input type="hidden" name="recipe" value="<%= recipe.id%>">
                 <button class="ui orange button">Save</button>
@@ -111,35 +106,35 @@
         <!-- This is where the reviews will go  -->
 
 
-      <div class="ui three column grid" id= "grid_containers">
-        <% reviews.forEach(review => { %>
-          <div class="column">
-            <div class="ui raised segment">
-              <a class="avatar">
-                <img class="ui small image centered" src="<%= review.user.avatar %> ">
-              </a>
-              <div class="ui center aligned container ">
-                <a class="User"> 
-                  <%= review.user.username %> 
+        <div class="ui three column grid" id="grid_containers">
+          <% reviews.forEach(review=> { %>
+            <div class="column">
+              <div class="ui raised segment comment_show">
+                <a class="avatar">
+                  <img class="ui small image centered" src="<%= review.user.avatar %> ">
                 </a>
-                <div class="metadata">
-                  <div class="date">
-                    <%= new Date(review.createdAt).toLocaleString() %> 
+                <div class="ui center aligned container ">
+                  <a class="User">
+                    <%= review.user.username %>
+                  </a>
+                  <div class="metadata">
+                    <div class="date">
+                      <%= new Date(review.createdAt).toLocaleString() %>
+                    </div>
+                    <div class="rating">
+                      <i class="star icon"></i>
+                      <%= review.rating %>
+                    </div>
                   </div>
-                  <div class="rating">
-                    <i class="star icon"></i>
-                    <%= review.rating %> 
+                  <div class="text">
+                    <%= review.content %>
                   </div>
+                  <form action="/reviews/<%= review.id %> ?_method=DELETE" method="POST">
+                    <a href="../recipes/" class="ui black button">Delete</a>
+                  </form>
                 </div>
-                <div class="text">
-                  <%= review.content %>
-                </div>
-                <form action="/reviews/<%= review.id %> ?_method=DELETE" method="POST">
-                  <a href="../recipes/" class="ui black button">Delete</a>
-                </form>
               </div>
             </div>
-          </div>
         </div>
         <% }) %>
 

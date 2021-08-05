@@ -13,16 +13,25 @@
       </section>
 
 
-      <div class="ui equal width grid">
-        <div class="equal width row">
-          <div class="column">
+      <div class="ui equal width stackable grid">
+        <div class="equal width row" class = "">
+          <div class="ui column">
             <figure class="content">
               <img src="<%= recipe.image%> " alt="recipe image" class="ui large centered rounded image"
                 class="show_image">
             </figure>
+            <section class ="show_page_buttons">
+            <a href="/recipes/<%= recipe.id %>/edit ">
+              <button class= "ui inverted orange button" >Edit</button>
+            </a>
+
+              <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+                <button class="ui inverted red button">Delete</button>
+              </form>
+            </section>
           </div>
-          <div class="column" class="show_image_container">
-            <div class="column" id="ingredients_list">
+          <div class="ui column" class="show_image_container">
+            <div class="ui column" id="ingredients_list">
               <div class="ui bulleted list middle aligned">
                 <h3 class="ui large centered header"> Ingredients</h3>
                 <% recipe.ingredients.forEach((ingredient)=> { %>
@@ -32,16 +41,11 @@
                   <% }) %>
               </div>
 
-              <div class="ui content centered row">
-                <a href="/recipes/<%= recipe.id %>/edit " class="ui button">Edit</a>
-
-                <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-                  <button class="ui orange button">Delete</button>
-                </form>
-              </div>
+          
+             
+              
             </div>
           </div>
-          <div class="ui colum centered grid">
             <div class="column">
               <div class="column" id="instructions_list">
                 <div class="ui ordered list">
@@ -54,26 +58,28 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
 
+
+      
+<!-- N Attempt AT SHOW PAGE  -->
 
 
 
       <!-- THIS IS THE REVIEWS SECTION -->
 
       <div class="container" id="reviews_container">
-        <section>
-            <h1 class = "ui block centered header" id="reviews_header">Comment section</h1>
-        </section>
+       
+            <h2 class = "ui block centered header" id="reviews_header">Comment section</h2>
+        
 
         <div class="ui left floated segment">
-          <section class="form">
-            <div class="ui attached message">
-              <div class="content">
-                <div class="ui huge header">Rate Your Favorite Recipe!</div>
-              </div>
+           <section class="form"> 
+            <div class="ui centered header">
+             
+                <h2 class = "ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
+              
               <p>Fill out the field below to submit your review!</p>
             </div>
 
@@ -91,17 +97,17 @@
                 <a class="ui black button" href="../recipes/">Discard</a>
               </div>
             </form>
-          </section>
+          </section> 
         </div>
 
 
         <!-- This is where the reviews will go  -->
 
 
-      <div class="ui three column grid" id= "grid_containers">
+      <div class="ui three column stackable grid" id= "grid_containers">
         <% reviews.forEach(review=> { %>
           <div class="column">
-            <div class="ui segment">
+            <div class="ui raised segment">
               <a class="avatar">
                 <img class="ui small image centered" src="https://avatarfiles.alphacoders.com/547/54795.jpg"></a>
               <div class="ui center aligned container ">

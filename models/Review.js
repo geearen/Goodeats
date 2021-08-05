@@ -12,18 +12,18 @@ const ReviewSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please add content to your review!"],
     },
-    recipe:{
-      type:mongoose.Types.ObjectId,
+    recipe: {
+      type: mongoose.Types.ObjectId,
       ref: "Recipe",
     },
-    user:{
-      type:mongoose.Types.ObjectId,
+    user: {
+      type: mongoose.Types.ObjectId,
       ref: "User",
     }
   },
-  { 
-  timestamps: true 
-});
+  {
+    timestamps: true
+  });
 
 const Review = mongoose.model("Review", ReviewSchema);
 

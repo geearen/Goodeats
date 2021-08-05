@@ -2,66 +2,66 @@
 const express = require("express");
 const router = express.Router();
 
-const {Recipe,Review} = require("../models");
+const { Recipe, Review } = require("../models");
 
 
 
 /* Index Route */
 router.get("/", function (request, response) {
-    // response.send("I AM INDEX");
-  Recipe.find({}, function (error, allRecipes){
-    if(error){
+  // response.send("I AM INDEX");
+  Recipe.find({}, function (error, allRecipes) {
+    if (error) {
       console.log(error);
-      request.error = error;  
+      request.error = error;
     };
-    
+
     const context = {
-      recipes:allRecipes,
-      isEmpty:false,
+      recipes: allRecipes,
+      isEmpty: false,
     };
-    return response.render("recipes/index",context);
+    return response.render("recipes/index", context);
   });
 });
 
 /* Category Route */
-router.get("/filter/:category", function (request,response, next){
-      let query = {};
-      if(request.params.category !== "all"){
-        query = { category: request.params.category };
-      }
-      Recipe.find(query, 
-        function (error, filteredRecipes){
-        if(error){
-          console.log(error);
-          request.error = error;
+router.get("/filter/:category", function (request, response, next) {
+  let query = {};
+  if (request.params.category !== "all") {
+    query = { category: request.params.category };
+  }
+  Recipe.find(query,
+    function (error, filteredRecipes) {
+      if (error) {
+        console.log(error);
+        request.error = error;
+      };
+      let context = {};
+      if (filteredRecipes.length == 0) {
+        // return next();
+        context = { isEmpty: true }
+      } else {
+        context = {
+          recipes: filteredRecipes,
+          isEmpty: false,
+          viewLength: filteredRecipes.length,
         };
-        let context ={};
-        if(filteredRecipes.length == 0){
-          // return next();
-          context = {isEmpty:true}
-        } else{
-          context = {
-            recipes: filteredRecipes,
-            isEmpty:false,
-            viewLength:filteredRecipes.length,
-          };
-        }
-        return response.render("recipes/index", context);
+      }
+      return response.render("recipes/index", context);
     });
 });
 
 /* New Route */
-router.get("/new", function(request, response){
+router.get("/new", function (request, response) {
   // response.send("I AM NEW PAGE");
-  const context ={};
+  const context = {};
   return response.render("recipes/new", context);
 });
 
 /* Create Route */
-router.post("/", function(request, response){
+router.post("/", function (request, response) {
   // response.send("I AM CREATE PAGE");
-  Recipe.create(request.body, function(error, createdRecipe){
-    if(error){
+  Recipe.create(request.body, function (error, createdRecipe) {
+    if (error) {
       console.log(error);
       request.error = error;
 
@@ -88,18 +88,18 @@ router.post("/comment/:id", function (request, response) {
 });
 
 /* Show Route */
-router.get("/:id", function(request,response){
+router.get("/:id", function (request, response) {
   // response.send("I AM SHOW PAGE");
-  Recipe.findById(request.params.id, function(error, foundRecipe){
-    if(error){
+  Recipe.findById(request.params.id, function (error, foundRecipe) {
+    if (error) {
       console.log(error);
       request.error = error;
       return next();
     }
-    Review.find({recipe:request.params.id}).populate('user').exec(function(error,allReviews) {
-      const context ={
+    Review.find({ recipe: request.params.id }).populate('user').exec(function (error, allReviews) {
+      const context = {
         recipe: foundRecipe,
-        reviews:allReviews,
+        reviews: allReviews,
       };
       return response.render("recipes/show", context);
     })
@@ -107,23 +107,23 @@ router.get("/:id", function(request,response){
 });
 
 /* Edit Route */
-router.get("/:id/edit", function(request,response){
+router.get("/:id/edit", function (request, response) {
   // response.send("I AM EDIT PAGE")
-  Recipe.findById(request.params.id, function(error, foundRecipe){
-    if(error){
+  Recipe.findById(request.params.id, function (error, foundRecipe) {
+    if (error) {
       console.log(error);
       request.error = error;
       return next();
     };
-      const context ={
-        recipe:foundRecipe,
-      };
-      return response.render("recipes/edit", context);
-    })
+    const context = {
+      recipe: foundRecipe,
+    };
+    return response.render("recipes/edit", context);
+  })
 });
 
 /* Update Route */
-router.put("/:id", function(request, response){
+router.put("/:id", function (request, response) {
   // response.send("I AM UPDATED");
   Recipe.findByIdAndUpdate(
     request.params.id,
@@ -145,16 +145,16 @@ router.put("/:id", function(request, response){
 });
 
 /* Delete Route */
-router.delete("/:id", function(request, response){
+router.delete("/:id", function (request, response) {
   // response.send("I AM DELETED oh nooo");
-  Recipe.findByIdAndDelete(request.params.id, function(error, deletedRecipes){
-    if(error){
+  Recipe.findByIdAndDelete(request.params.id, function (error, deletedRecipes) {
+    if (error) {
       console.log(error);
       request.error = error;
       return next();
     };
-    Review.deleteMany({recipe: request.params.id}, function(error, foundReviews){
-      if(error){
+    Review.deleteMany({ recipe: request.params.id }, function (error, foundReviews) {
+      if (error) {
         console.log(error);
         request.error = error;
         return next();

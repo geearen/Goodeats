@@ -24,10 +24,10 @@ const recipeSchema = new mongoose.Schema ({
         require: [true, "Oops you forgot to put your instructions!"]
     },
   },
- {
+{
     timestamps:true 
- });
+});
 
- const Recipe = mongoose.model('Recipe', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipe;

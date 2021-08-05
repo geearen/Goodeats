@@ -4,9 +4,8 @@
 
   <body>
     <%- include("../partials/navbar/_navbar") %>
-    
-      <!-- New Section -->
 
+      <!-- New Section -->
       <div class="ui grid">
         <div class="eight wide centered column">
           <section class="form">
@@ -18,37 +17,31 @@
             </div><br>
             <div class="ui button" id="addIngredients">Add more ingredients </div>
             <div class="ui button" id="addInstructions">Add more instructions</div><br>
-
             <form class="ui form " action="/recipes" method="post">
               <div class="field">
                 <label for="title">Recipe Title </label>
                 <input type="text" name="title">
               </div>
-
               <div class="field">
                 <label for="image">Image</label>
                 <input type="text" name="image">
               </div>
-
               <div class="field">
                 <label for="category">Category</label>
                 <input type="text" name="category">
               </div>
-
               <div class="field">
                 <label for="ingredients">Ingredients</label>
                 <div class="ingredients">
                   <input type="text" name="ingredients">
                 </div>
               </div>
-
               <div class="field">
                 <label for="instructions">Instructions</label>
                 <div class="instructions">
                   <input type="text" name="instructions">
                 </div>
               </div>
-
               <div class="content">
                 <button class="ui button primary">Submit</button>
               </div>

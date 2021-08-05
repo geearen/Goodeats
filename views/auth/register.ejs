@@ -6,47 +6,31 @@
   <body class="login_register_body">
     <%- include("../partials/navbar/_navbar") %>
       <section id="register_form">
-
         <form action="/register" method="POST" class="ui form segment">
           <p>Let's go ahead and get you signed up.</p>
           <div class="two fields">
             <div class="field">
               <label>First Name</label>
-              <input 
-              placeholder="First Name" 
-              name="firstName" 
-              type="text">
+              <input placeholder="First Name" name="firstName" type="text">
             </div>
             <div class="field">
               <label>Last Name</label>
-              <input 
-              placeholder="Last Name" 
-              name="lastName" 
-              type="text">
+              <input placeholder="Last Name" name="lastName" type="text">
             </div>
           </div>
           <div class="two fields">
             <div class="field">
               <label>Username</label>
-              <input 
-              placeholder="Username" 
-              name="username" 
-              type="text">
+              <input placeholder="Username" name="username" type="text">
             </div>
             <div class="field">
               <label>Email</label>
-              <input 
-              placeholder="email@email.com" 
-              name="email" 
-              type="text">
+              <input placeholder="email@email.com" name="email" type="text">
             </div>
           </div>
           <div class="field">
             <label>Password</label>
-            <input 
-            type="password" 
-            name="password" 
-            placeholder="*******">
+            <input type="password" name="password" placeholder="*******">
           </div>
           <div class="inline field">
             <button class="ui orange submit button">Submit</button>

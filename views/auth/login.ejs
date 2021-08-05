@@ -1,56 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("../partials/head/_head") %> 
+<%- include("../partials/head/_head") %>
 
 
-<body class="login_register_body">
-  
-  <%- include("../partials/navbar/_navbar") %> 
-<section id ="login_form">
-  <div class="ui placeholder segment center aligned login_container" >
-    <div class="ui two column very relaxed stackable grid">
-      <div class="column">
-        <div class="ui form">
-          <div class="field">
-            <form action="/login" method="POST">
-              <label>Email</label>
-              <div class="ui left icon input">
-                <input 
-                type="text" 
-                name="email"
-                placeholder="email@email.com"
-                >
-                <i class="user icon"></i>
+  <body class="login_register_body">
+
+    <%- include("../partials/navbar/_navbar") %>
+      <section id="login_form">
+        <div class="ui placeholder segment center aligned login_container">
+          <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+              <div class="ui form">
+                <div class="field">
+                  <form action="/login" method="POST">
+                    <label>Email</label>
+                    <div class="ui left icon input">
+                      <input type="text" name="email" placeholder="email@email.com">
+                      <i class="user icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                  <label>Password</label>
+                  <div class="ui left icon input">
+                    <input type="password" name="password" placeholder="*********">
+                    <i class="lock icon"></i>
+                  </div>
+                </div>
+                <button class="ui orange submit button">Login</button>
               </div>
             </div>
-            <div class="field">
-              <label>Password</label>
-              <div class="ui left icon input">
-                <input 
-                type="password"
-                name="password"
-                placeholder="*********">
-                <i class="lock icon"></i>
-              </div>
+            </form>
+            <div class="middle aligned column">
+              <a class="ui big button" href="/register">
+                <i class="signup icon"></i>
+                Sign Up
+              </a>
             </div>
-            <button class="ui orange submit button">Login</button>
+          </div>
+          <div class="ui vertical divider">
+            Or
           </div>
         </div>
-      </form>
-      
-      <div class="middle aligned column">
-        <a class="ui big button" href="/register">
-          <i class="signup icon"></i>
-          Sign Up
-        </a>
-      </div>
-    </div>
-    
-    <div class="ui vertical divider">
-      Or
-    </div>
-  </section>
-  
-</div>
-</body>
+      </section>
+
+  </body>
+
 </html>

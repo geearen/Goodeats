@@ -5,23 +5,23 @@ const { User } = require("../models");
 
 
 /* Register --- Get Route */
-router.get("/register", function (request,response){
+router.get("/register", function (request, response) {
   // response.send("THIS IS THE REGISTER PAGE");
   return response.render("auth/register");
 });
 
 /* Login -- GET Route */
-router.get("/login", function (request,response){
+router.get("/login", function (request, response) {
   // response.send("THIS IS LOGIN PAGE");
   return response.render("auth/login");
 });
 
 /* Register --- POST route */
-router.post("/register", async function(request,response){
+router.post("/register", async function (request, response) {
   // response.send("I CREATED MY ACCOUNT")
-  try{
-    const foundUser = await User.exists({email:request.body.email})
-    if(foundUser){
+  try {
+    const foundUser = await User.exists({ email: request.body.email })
+    if (foundUser) {
       return response.redirect("/login");
     };
 
@@ -32,7 +32,7 @@ router.post("/register", async function(request,response){
     const newUser = await User.create(request.body);
 
     return response.redirect("/login");
-  }catch(error){
+  } catch (error) {
     console.log(err);
     return response.send(error); //need fix
   }
@@ -42,23 +42,23 @@ router.post("/register", async function(request,response){
 /* Login --- POST route */
 router.post("/login", async function (request, response) {
   // response.send("I LOG IN")
-  try{
-    const foundUser = await User.findOne({email:request.body.email});
+  try {
+    const foundUser = await User.findOne({ email: request.body.email });
     console.log(foundUser);
-    if(!foundUser){
+    if (!foundUser) {
       return response.redirect("/register");
     }
 
     const match = await bcrypt.compare(request.body.password, foundUser.password);
-    if(!match){
+    if (!match) {
       return response.send("Password invalid"); //need fix
     }
-    request.session.currentUser={
-      id:foundUser._id,
-      username:foundUser.username,
+    request.session.currentUser = {
+      id: foundUser._id,
+      username: foundUser.username,
     }
     return response.redirect("/recipes");
-  }catch(error){
+  } catch (error) {
     console.log(error);
     response.send(error);
   }
@@ -67,10 +67,10 @@ router.post("/login", async function (request, response) {
 /* LOG OUT --- GET */
 router.get("/logout", async function (request, response) {
   // response.send("I LOGGED OUT")
-  try{
+  try {
     await request.session.destroy();
     return response.redirect("/login");
-  }catch(error){
+  } catch (error) {
     console.log(error);
     return response.send(error);
   }

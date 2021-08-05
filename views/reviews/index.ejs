@@ -4,13 +4,8 @@
 <%- include("../partials/head/_head") %>
 
   <body>
-
     <%- include("../partials/navbar/_navbar") %>
-
-
       <!-- This is the form for new reviews-->
-
-
       <div class="ui left floated segment">
         <section class="form">
           <div class="ui attached message">
@@ -22,42 +17,28 @@
           <form action="/reviews" method="POST" class="ui large form attached fluid segment">
             <div class="field">
               <label for="label">Rating </label>
-              <input 
-              type="number" 
-              name="rating" 
-              min="0" 
-              max="5" 
-              placeholder="0-5">
+              <input type="number" name="rating" min="0" max="5" placeholder="0-5">
             </div>
             <div class="field">
               <label>Short Text</label>
-              <textarea 
-              rows="3" 
-              name="content"></textarea>
-            </div> 
-            
-                <label for="label"> Select A Recipe </label>
-                  <select name="recipe" >
-                    <% recipes.forEach(recipe => { %>
-                      <option value="<%= recipe.id %>">
-                        <%= recipe.title %>
-                      </option>
-                      <% }) %>
-                    </select>
-
-
+              <textarea rows="3" name="content"></textarea>
+            </div>
+            <label for="label"> Select A Recipe </label>
+            <select name="recipe">
+              <% recipes.forEach(recipe=> { %>
+                <option value="<%= recipe.id %>">
+                  <%= recipe.title %>
+                </option>
+                <% }) %>
+            </select>
             <button class="ui orange button">Save</button>
             <a class="ui black button" href="../recipes/">Discard</a>
           </form>
         </section>
       </div>
-
       <br><br>
       </div>
-      <!-- This is where the reviews will go  -->
-
       <br><br>
-
       <div class="ui three column grid">
         <% reviews.forEach(review=> { %>
           <div class="column">
@@ -90,7 +71,8 @@
               </div>
             </div>
           </div>
-            <% }) %>
-        </div>
+          <% }) %>
+      </div>
   </body>
+
 </html>

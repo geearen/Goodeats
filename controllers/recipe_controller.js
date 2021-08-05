@@ -69,6 +69,19 @@ router.post("/", function(request, response){
   });
 });
 
+/* Create Route for Show Page Comment */
+router.post("/comment/:id", function (request, response) {
+  request.body.user = request.session.currentUser.id;
+  Review.create(request.body, function (error, createdReviews) {
+    if (error) {
+      console.log(error)
+      req.error = error;
+      return next();
+    }
+    return response.redirect(`/recipes/${request.params.id}`)
+  });
+});
+
 /* Show Route */
 router.get("/:id", function(request,response){
   // response.send("I AM SHOW PAGE");

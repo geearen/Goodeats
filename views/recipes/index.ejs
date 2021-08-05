@@ -5,28 +5,32 @@
 
   <body>
     <%- include("../partials/navbar/_navbar") %>
-
+    <hr id="spotlight_line"/>
       <h1 id="spotlight__header">Recipe Spotlight</h1>
-      <div class="spotlight ui container center aligned">
-        <div class="ui two column stackable grid ">
-          <% if (!isEmpty) { %>
-            <% function randomRecipe () { %>
-              <% const rand=Math.floor(Math.random()*recipes.length) %>
-                <% const randRecipe=recipes[rand] %>
-                  <div class="column">
-                    <a href="/recipes/<%= randRecipe.id %> " class="spotlight__title">
-                      <%= randRecipe.title %>
-                    </a>
-                  </div>
-                  <div class="column">
-                    <a href="/recipes/<%= randRecipe.id %> " class="ui large image">
-                      <img src="<%= randRecipe.image %> " class="spotlight__image">
-                    </a>
-                  </div>
-                  <% } %>
-                    <% randomRecipe(); %>
-                      <% } %>
-        </div>
+    <hr id="spotlight_line"/>
+      <div class="spotlight ui container centered">
+          <div class="ui two column stackable grid ">
+            <% if (!isEmpty) { %>
+              <% function randomRecipe () { %>
+                <% const rand=Math.floor(Math.random()*recipes.length) %>
+                  <% const randRecipe=recipes[rand] %>
+                    <div class="column">
+                      <a href="/recipes/<%= randRecipe.id %> ">
+                        <p class="spotlight__title">
+                          <%= randRecipe.title %>
+                        </p>
+                      </a>
+                    </div>
+                    <div class="center aligned column">
+                      <a href="/recipes/<%= randRecipe.id %> " class="ui medium image">
+                        <img src="<%= randRecipe.image %> " class="spotlight__image">
+                        <img src="<%= randRecipe.image %> " class="spotlight__image__shadow">
+                      </a>
+                    </div>
+                    <% } %>
+                      <% randomRecipe(); %>
+                        <% } %>
+          </div>
       </div>
 
 
@@ -52,19 +56,24 @@
         </div>
 
 
-        <div class="ui grid bottom__show">
+        <div class="ui centered grid bottom__show">
           <% if (!isEmpty) { %>
             <div class="ui four column stackable grid ">
-              <% for( let index=0; index < recipes.length; index++ ) { %>
-                <% const recipe=recipes[index] %>
+              
+              <% for( let index=0; index < 8; index++ ) { %>
+                <% const recipe=recipes[(Math.floor(Math.random()*recipes.length))] %>
                   <div class="ui column segment border_image">
                     <div class="ui blue ribbon label">
                       <i class="spoon icon"></i>
                       <%= recipe.category %>
                     </div>
                     <a href="/recipes/<%= recipe.id %> " class="">
-                      <img class="ui large rounded image" id="recipe_image" src="<%= recipe.image %>"
-                        alt="image placeholder">
+                      <img 
+                      class="ui medium rounded image" 
+                      id="recipe_image" 
+                      src="<%= recipe.image %>" 
+                      alt="image placeholder"
+                      >
                     </a>
                   </div>
                   <% } %>

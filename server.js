@@ -47,7 +47,8 @@ const authRequired = function(request,response,next){
     return response.redirect("/login");
   }
 }
-console.log("Above Routes")
+app.get("/", (request, respond) => respond.redirect("/recipes"));
+
 /*  Routes */
 app.use("/", controllers.auth);
 app.use("/recipes", controllers.recipe);

@@ -78,7 +78,7 @@ router.get("/:id", function(request,response){
       request.error = error;
       return next();
     }
-    Review.find({recipe:request.params.id}).exec(function(error,allReviews) {
+    Review.find({recipe:request.params.id}).populate('user').exec(function(error,allReviews) {
       const context ={
         recipe: foundRecipe,
         reviews:allReviews,
@@ -135,7 +135,15 @@ router.delete("/:id", function(request, response){
       request.error = error;
       return next();
     };
-    return response.redirect("/recipes");
+    Review.deleteMany({recipe: request.params.id}, function(error, foundReviews){
+      if(error){
+        console.log(error);
+        request.error = error;
+        return next();
+      }
+      return response.redirect("/recipes");
+
+    })
   });
 });
 

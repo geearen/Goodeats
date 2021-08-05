@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-nodemo": "nodemon server.js",
+    "watch-nodemon": "nodemon server.js",
     "watch-sass": "sass --watch sass/src:public/styles",
     "dev": "concurrently -n sass,server -c 'bgMagenta.bold,bgGreen.bold' 'npm:watch-sass' 'npm:watch-nodemon'"
   },

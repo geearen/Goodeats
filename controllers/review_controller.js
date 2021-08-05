@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Review, Recipe} = require("../models");
+const { Review, Recipe } = require("../models");
 
 
 /* Index Route */
@@ -23,6 +23,7 @@ router.get("/", function (request, response) {
         reviews: allReviews,
         recipes: allRecipes,
       };
+      console.log(context.reviews)
       return response.render("reviews/index", context);
     })
   })
@@ -38,7 +39,7 @@ router.post("/", function(request, response){
       req.error = error;
       return next();
     }  
-  return response.redirect("/reviews")
+  return response.redirect("/reviews/")
   });
 });
 
@@ -51,7 +52,7 @@ router.delete("/:id", function(request, response){
       req.error = error;
       return next();
     }
-return response.redirect("/reviews")
+  return response.redirect("/reviews")
   })
 });
 

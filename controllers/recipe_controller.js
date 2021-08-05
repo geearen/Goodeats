@@ -25,7 +25,11 @@ router.get("/", function (request, response) {
 
 /* Category Route */
 router.get("/filter/:category", function (request,response, next){
-      Recipe.find({category:request.params.category}, 
+      let query = {};
+      if(request.params.category !== "all"){
+        query = { category: request.params.category };
+      }
+      Recipe.find(query, 
         function (error, filteredRecipes){
         if(error){
           console.log(error);
@@ -39,6 +43,7 @@ router.get("/filter/:category", function (request,response, next){
           context = {
             recipes: filteredRecipes,
             isEmpty:false,
+            viewLength:filteredRecipes.length,
           };
         }
         return response.render("recipes/index", context);

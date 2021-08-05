@@ -2,47 +2,56 @@
 const express = require("express");
 const router = express.Router();
 
-const {Review} = require("../models");
+const { Review, Recipe} = require("../models");
 
 
 /* Index Route */
 router.get("/", function (request, response) {
-  Review.find({}, function (error, allReviews){
+  Review.find({}).populate('recipe user').exec(function(error, allReviews){
     if (error) {
       console.log(error);
       req.error = error;
       return next();
     }
-    const context = {
-      reviews: allReviews,
-    };
-    return response.render("reviews/index", context);
+    Recipe.find({},function(error, allRecipes) {
+      if(error){
+        console.log(error);
+        req.error = error;
+        return next();
+      }
+      const context = {
+        reviews: allReviews,
+        recipes: allRecipes,
+      };
+      return response.render("reviews/index", context);
+    })
   })
 });
 
 
 /* Create Route */
 router.post("/", function(request, response){
+  request.body.user = request.session.currentUser.id;
   Review.create(request.body, function (error, createdReviews){
     if(error){
       console.log(error)
       req.error = error;
       return next();
     }  
-   return response.redirect("/reviews")
+  return response.redirect("/reviews")
   });
 });
 
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  Review.findById(request.param.id, function (error, deletedReviews){
+  Review.findById(request.params.id, function (error, deletedReviews){
     if(error) {
       console.log(error)
       req.error = error;
       return next();
-     }
- return response.redirect("/reviews")
+    }
+return response.redirect("/reviews")
   })
 });
 

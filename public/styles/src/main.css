@@ -9,20 +9,30 @@ body {
   font-size: 12px;
 }
 
-.ui.inverted, .ui.primary.inverted {
-  background-color: #003049;
-  margin: 0px;
-  padding: 30px;
-  padding-bottom: 100px;
+.top_menu {
+  padding: 0px 50px 0px 50px;
 }
 
-.top {
+.top.ui.inverted, .ui.primary.inverted {
+  background-color: #003049;
+  margin: 0px;
+  padding: 0px 30px 20px 30px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
 }
-.top .brand__logo {
+.top.ui.inverted .brand__logo, .ui.primary.inverted .brand__logo {
+  max-width: 50rem;
   padding: 20px;
   margin: 10px;
+}
+
+#spotlight_line {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 20px;
+  border-top: 2px solid #FCBF49;
 }
 
 /* navbar */
@@ -33,46 +43,72 @@ body {
   font-family: "Comfortaa", cursive;
 }
 .navbar .small__logo {
-  width: 80px;
+  padding-top: 5px;
+  width: 5rem;
   height: auto;
 }
 
 /* Index page */
 .spotlight {
-  height: 50vh;
+  padding: 50px;
+  margin: 50px;
 }
 .spotlight .spotlight__title {
   font-family: "Indie Flower", cursive;
-  font-size: 8em;
+  font-size: 5rem;
+  padding-top: 50px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   text-align: center;
-  text-overflow: ellipsis;
+  color: #003049;
+  text-shadow: 3px 5px 2px #FCBF49;
+}
+.spotlight .ui.medium.image {
+  position: relative;
+}
+.spotlight .ui.medium.image .spotlight__image__shadow {
+  position: absolute;
+  max-width: 26rem;
+  bottom: -10%;
+  right: -10%;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.9;
 }
 
 #spotlight__header {
-  position: absolute;
+  padding-top: 20px;
+  text-align: center;
   font-family: "Indie Flower", cursive;
-  font-size: 8em;
+  font-size: 8rem;
+  text-decoration: solid;
+  text-shadow: 2px 5px 2px #FCBF49;
+}
+
+/* Reviews */
+.ui.mini.star.rating {
+  height: auto;
+  width: 10px;
 }
 
 /* Bottom of Index */
 .allRecipes {
   padding: 0px 20px 0px 20px;
 }
-.allRecipes .ui.grid.bottom__show {
-  margin: 5px;
-  padding: 0px 20px 0px 20px;
-}
 .allRecipes .ui.inverted.secondary.pointing.menu.bottom__nav {
   margin: 0px;
-  padding: 0px;
-  padding-bottom: 10px;
+  background-color: #003049;
+  padding: 10px 0px 10px 0px;
 }
 .allRecipes .ui.grid.bottom__show {
   background-color: #eae2b7;
+  margin: 0px;
+  padding: 10px 20px 10px 20px;
+  border: 5px solid #003049;
 }
 .allRecipes .ui.grid.bottom__show .ui.column.segment.border_image {
   min-width: 200px;
-  max-width: 400px;
+  max-width: 300px;
   margin: 20px 14px 20px 14px;
   padding: 14px;
 }
@@ -163,7 +199,7 @@ body {
 
 .ui.large.image, .ui.large.images .image, .ui.large.images img, .ui.large.images svg {
   overflow: hidden;
-  width: 600x;
+  width: 600px;
   padding: 20px;
 }
 

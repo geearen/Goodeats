@@ -78,7 +78,7 @@ router.get("/:id", function(request,response){
       request.error = error;
       return next();
     }
-    Review.find({}, function(error,allReviews) {
+    Review.find({recipe:request.params.id}).exec(function(error,allReviews) {
       const context ={
         recipe: foundRecipe,
         reviews:allReviews,
@@ -97,11 +97,11 @@ router.get("/:id/edit", function(request,response){
       request.error = error;
       return next();
     };
-    const context ={
-      recipe:foundRecipe,
-    };
-    return response.render("recipes/edit", context);
-  });
+      const context ={
+        recipe:foundRecipe,
+      };
+      return response.render("recipes/edit", context);
+    })
 });
 
 /* Update Route */

@@ -85,6 +85,12 @@ body {
   text-shadow: 2px 5px 2px #FCBF49;
 }
 
+/* Reviews */
+.ui.mini.star.rating {
+  height: auto;
+  width: 10px;
+}
+
 /* Bottom of Index */
 .allRecipes {
   padding: 0px 20px 0px 20px;
@@ -193,7 +199,7 @@ body {
 
 .ui.large.image, .ui.large.images .image, .ui.large.images img, .ui.large.images svg {
   overflow: hidden;
-  width: 600x;
+  width: 600px;
   padding: 20px;
 }
 

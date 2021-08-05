@@ -55,8 +55,9 @@
         <div class="ui grid bottom__show">
           <% if (!isEmpty) { %>
             <div class="ui four column stackable grid ">
-              <% for( let index=0; index < recipes.length; index++ ) { %>
-                <% const recipe=recipes[index] %>
+              
+              <% for( let index=0; index < 9; index++ ) { %>
+                <% const recipe=recipes[(Math.floor(Math.random()*recipes.length))] %>
                   <div class="ui column segment border_image">
                     <div class="ui blue ribbon label">
                       <i class="spoon icon"></i>
@@ -64,7 +65,7 @@
                     </div>
                     <a href="/recipes/<%= recipe.id %> " class="">
                       <img 
-                      class="ui large rounded image" 
+                      class="ui medium rounded image" 
                       id="recipe_image" 
                       src="<%= recipe.image %>" 
                       alt="image placeholder"

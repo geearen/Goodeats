@@ -1,13 +1,18 @@
 <nav class="navbar" role="navigation">
-    <div class="ui inverted secondary pointing huge menu" style="background-color:#003049">
+
+  <div class="ui inverted secondary pointing huge menu" style="background-color:#003049">
     <a class="item" href="/recipes">GoodEats
       <img class="small__logo" src="/assets/favicon/Goodeats_favicon.png" alt="goodeats small logo">
     </a>
-
+    
     <div class="huge right menu">
-      <a class="item" href="/recipes/new">New Recipe</a>
-      <a class="item" style="color:orange" href="/login">Login</a>
-      <a class="item" style="color:#003049 " href="/register">Register</a>
+      <% if(typeof user !== 'undefined') {%>
+      <p class="item"><%= user.username %> </p>
+        <% } %> 
+        <% if (typeof routes !== 'undefined') { %>
+        <% routes.forEach((route) => { %> 
+      <a class="item" href="<%= route.href %> "> <%= route.title %></a>        
+        <% }) } %> 
     </div>
     </div>
 </nav>

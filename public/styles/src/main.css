@@ -12,7 +12,7 @@ body {
 .ui.inverted, .ui.primary.inverted {
   background-color: #003049;
   margin: 0px;
-  padding: 30px;
+  padding: 0px 30px 20px 30px;
   padding-bottom: 100px;
 }
 
@@ -33,6 +33,7 @@ body {
   font-family: "Comfortaa", cursive;
 }
 .navbar .small__logo {
+  padding-top: 5px;
   width: 80px;
   height: auto;
 }

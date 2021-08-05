@@ -3,6 +3,13 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
+
+router.get ("/", function (request,respond) {
+  respond.send("This is working")
+})
+
+
+
 /* Register --- Get Route */
 router.get("/register", function (request,response){
   // response.send("THIS IS THE REGISTER PAGE");
@@ -36,6 +43,7 @@ router.post("/register", async function(request,response){
     return response.send(error); //need fix
   }
 });
+
 
 /* Login --- POST route */
 router.post("/login", async function (request, response) {

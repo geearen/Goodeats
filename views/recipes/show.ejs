@@ -84,9 +84,10 @@
               </div>
               <div class="field">
                 <label>Short Text</label>
-                <textarea rows="3" name="content"></textarea>
+                <textarea rows="3" name="content" placeholder="Leave a comment/review!"></textarea>
               </div>
               <div>
+                <input type="hidden" name="recipe" value="<%= recipe.id%>">
                 <button class="ui orange button">Save</button>
                 <a class="ui black button" href="../recipes/">Discard</a>
               </div>
@@ -99,32 +100,36 @@
 
 
       <div class="ui three column grid" id= "grid_containers">
-        <% reviews.forEach(review=> { %>
+        <% reviews.forEach(review => { %>
           <div class="column">
             <div class="ui segment">
               <a class="avatar">
-                <img class="ui small image centered" src="https://avatarfiles.alphacoders.com/547/54795.jpg"></a>
+                <img class="ui small image centered" src="<%= review.user.avatar %> ">
+              </a>
               <div class="ui center aligned container ">
-                <a class="User">Username</a>
+                <a class="User"> 
+                  <%= review.user.username %> 
+                </a>
                 <div class="metadata">
-                  <div class="date">"Newdatelocalestring"</div>
+                  <div class="date">
+                    <%= new Date(review.createdAt).toLocaleString() %> 
+                  </div>
                   <div class="rating">
                     <i class="star icon"></i>
-                    5 Faves
+                    <%= review.rating %> 
                   </div>
                 </div>
                 <div class="text">
                   <%= review.content %>
                 </div>
-                <form action="/reviews/?_method=DELETE" method="POST">
+                <form action="/reviews/<%= review.id %> ?_method=DELETE" method="POST">
                   <a href="../recipes/" class="ui black button">Delete</a>
                 </form>
               </div>
-              </form>
             </div>
           </div>
-          <% }) %>
-      </div>
+        </div>
+        <% }) %>
 
 
   </body>

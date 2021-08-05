@@ -29,6 +29,17 @@
               <textarea rows="3" name="content"></textarea>
             </div>
             <div>
+                <div class="ui fluid search selection dropdown ">
+                  <input name="recipes">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Select A Recipe </div>
+                  <div class="menu">
+                    <% recipes.forEach(recipes => { %>
+                      <div data-value="<%= recipes._id %>" class="item"> <%= recipes.title %> </div>
+                      <% }) %> 
+                    </div>
+                    </div>
+              </div>
               <button class="ui orange button">Save</button>
               <a class="ui black button" href="../recipes/">Discard</a>
             </div>
@@ -36,43 +47,45 @@
         </section>
 
         <br><br>
-    </div>
-        <!-- This is where the reviews will go  -->
+      </div>
+      <!-- This is where the reviews will go  -->
 
-
-
-
-
-<br><br>
+      <br><br>
 
       <div class="ui three column grid">
         <% reviews.forEach(review=> { %>
-        <div class="column">
-          <div class="ui segment">
-            <a class="avatar">
-              <img class="ui small image centered" src="https://avatarfiles.alphacoders.com/547/54795.jpg"></a>
-            <div class="ui center aligned container ">
-              <a class="User">Username</a>
-              <div class="metadata">
-                <div class="date">"Newdatelocalestring"</div>
-                <div class="rating">
-                  <i class="star icon"></i>
-                  5 Faves
+          <div class="column">
+            <div class="ui segment">
+              <a class="avatar">
+                <img class="ui small image centered" src="<%= review.user.avatar %> ">
+              </a>
+              <div class="ui center aligned container ">
+                <a class="User">
+                  <%= review.user.username %>
+                </a>
+                <div class="metadata">
+                  <div class="date">
+                    <%= new Date(review.createdAt).toLocaleString() %>
+                  </div>
+                  <div class="rating">
+                    <i class="star icon"></i>
+                    <%= review.rating %>
+                  </div>
                 </div>
+                <div class="text">
+                  <%= review.content %>
+                </div>
+                <a href="/recipes/<%= review.recipe.id %>">
+                  <%= review.recipe.title %> 
+                </a>
+                <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
+                  <button class="ui red button">Delete</button>
+                </form>
               </div>
-              <div class="text">
-                <%= review.content %>
-              </div>
-
-              <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button class="ui red button">Delete</button>
-
-              </form>
             </div>
           </div>
-        </div>
-        <% }) %>
-     
+          <% }) %>
+
   </body>
 
 </html>

@@ -25,7 +25,11 @@ router.get("/", function (request, response) {
 
 /* Category Route */
 router.get("/filter/:category", function (request,response, next){
-      Recipe.find({category:request.params.category}, 
+      let query = {};
+      if(request.params.category !== "all"){
+        query = { category: request.params.category };
+      }
+      Recipe.find(query, 
         function (error, filteredRecipes){
         if(error){
           console.log(error);
@@ -39,6 +43,7 @@ router.get("/filter/:category", function (request,response, next){
           context = {
             recipes: filteredRecipes,
             isEmpty:false,
+            viewLength:filteredRecipes.length,
           };
         }
         return response.render("recipes/index", context);
@@ -66,6 +71,19 @@ router.post("/", function(request, response){
       return response.render("recipes/new", context);
     };
     return response.redirect(`/recipes/${createdRecipe.id}`);
+  });
+});
+
+/* Create Route for Show Page Comment */
+router.post("/comment/:id", function (request, response) {
+  request.body.user = request.session.currentUser.id;
+  Review.create(request.body, function (error, createdReviews) {
+    if (error) {
+      console.log(error)
+      req.error = error;
+      return next();
+    }
+    return response.redirect(`/recipes/${request.params.id}`)
   });
 });
 

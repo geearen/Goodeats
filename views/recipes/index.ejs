@@ -6,7 +6,7 @@
   <body>
     <%- include("../partials/navbar/_navbar") %>
     <hr id="spotlight_line"/>
-    
+
       <h1 id="spotlight__header">Recipe Spotlight</h1>
     <hr id="spotlight_line"/>
       <div class="spotlight ui container centered">
@@ -38,7 +38,7 @@
 
       <section class="allRecipes">
         <div class="ui inverted secondary pointing menu bottom__nav">
-          <a href="/recipes" class="item">
+          <a href="/recipes/filter/all" class="item">
             All Recipes
           </a>
           <a href="/recipes/filter/breakfast" class="item">
@@ -61,7 +61,7 @@
           <% if (!isEmpty) { %>
             <div class="ui four column stackable grid ">
               
-              <% for( let index=0; index < 8; index++ ) { %>
+              <% for( let index=0; index < (typeof viewLength == "undefined" ? 14: viewLength); index++ ) { %>
                 <% const recipe=recipes[(Math.floor(Math.random()*recipes.length))] %>
                   <div class="ui column segment border_image">
                     <div class="ui blue ribbon label">

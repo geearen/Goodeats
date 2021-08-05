@@ -61,7 +61,7 @@
       <div class="ui three column grid">
         <% reviews.forEach(review=> { %>
           <div class="column">
-            <div class="ui segment">
+            <div class="ui raised segment comment_show">
               <a class="avatar">
                 <img class="ui small image centered" src="<%= review.user.avatar %> ">
               </a>
@@ -85,7 +85,7 @@
                   <%= review.recipe.title %>
                 </a>
                 <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
-                  <button class="ui red button">Delete</button>
+                  <button class="ui button" style="background-color: #FCBF49;">Delete</button>
                 </form>
               </div>
             </div>

@@ -39,14 +39,14 @@ router.post("/", function(request, response){
       req.error = error;
       return next();
     }  
-  return response.redirect("/reviews/")
+  return response.redirect("/reviews")
   });
 });
 
 
 /* Delete Route */
 router.delete("/:id", function(request, response){
-  Review.findById(request.params.id, function (error, deletedReviews){
+  Review.findByIdAndDelete(request.params.id, function (error, deletedReviews){
     if(error) {
       console.log(error)
       req.error = error;

@@ -69,36 +69,36 @@
 
       <!-- THIS IS THE REVIEWS SECTION -->
 
-      <div class="container" id="reviews_container">
-       
-            <h2 class = "ui block centered header" id="reviews_header">Comment section</h2>
-        
+    <div class="ui stackable section" id="reviews_container">
+      
+          <h2 class = "ui block centered header" id="reviews_header">Comment section</h2>
+      
 
-        <div class="ui left floated segment">
-           <section class="form"> 
-            <div class="ui centered header">
-             
-                <h2 class = "ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
-              
-              <p>Fill out the field below to submit your review!</p>
+      <div class="ui center container">
+          <section class="form"> 
+          <div class="ui centered header">
+            
+              <h2 class = "ui centered header" id="raitings_header">Rate Your Favorite Recipe!</h2>
+            
+            <p>Fill out the field below to submit your review!</p>
+          </div>
+
+          <form action="/reviews" method="POST" class="ui large form attached fluid segment">
+            <div class="field">
+              <label for="label">Rating </label>
+              <input type="number" name="rating" min="0" max="5" placeholder="0-5">
             </div>
-
-            <form action="/reviews" method="POST" class="ui large form attached fluid segment">
-              <div class="field">
-                <label for="label">Rating </label>
-                <input type="number" name="rating" min="0" max="5" placeholder="0-5">
-              </div>
-              <div class="field">
-                <label>Short Text</label>
-                <textarea rows="3" name="content"></textarea>
-              </div>
-              <div>
-                <button class="ui orange button">Save</button>
-                <a class="ui black button" href="../recipes/">Discard</a>
-              </div>
-            </form>
-          </section> 
-        </div>
+            <div class="field">
+              <label>Short Text</label>
+              <textarea rows="3" name="content"></textarea>
+            </div>
+            <div>
+              <button class="ui orange button">Save</button>
+              <a class="ui black button" href="../recipes/">Discard</a>
+            </div>
+          </form>
+        </section> 
+      </div>
 
 
         <!-- This is where the reviews will go  -->
@@ -111,7 +111,7 @@
               <a class="avatar">
                 <img class="ui small image centered" src="https://avatarfiles.alphacoders.com/547/54795.jpg"></a>
               <div class="ui center aligned container ">
-                <a class="User">Username</a>
+                <a class="User"><%= user.username %> </a>
                 <div class="metadata">
                   <div class="date">"Newdatelocalestring"</div>
                   <div class="rating">
@@ -131,8 +131,7 @@
           </div>
           <% }) %>
       </div>
-
-
+    </div>
   </body>
 
 </html>

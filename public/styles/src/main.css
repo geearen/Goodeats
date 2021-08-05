@@ -146,6 +146,11 @@ h1 {
   padding: 50px;
 }
 
+.ui.floated.segment, .ui[class*="left floated"].segment {
+  border: 1px solid #003049;
+  margin-left: 20px;
+}
+
 .ui.block.header {
   background-color: #eae2b7;
   color: #003049;

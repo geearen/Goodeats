@@ -22,31 +22,36 @@
           <form action="/reviews" method="POST" class="ui large form attached fluid segment">
             <div class="field">
               <label for="label">Rating </label>
-              <input type="number" name="rating" min="0" max="5" placeholder="0-5">
+              <input 
+              type="number" 
+              name="rating" 
+              min="0" 
+              max="5" 
+              placeholder="0-5">
             </div>
             <div class="field">
               <label>Short Text</label>
-              <textarea rows="3" name="content"></textarea>
+              <textarea 
+              rows="3" 
+              name="content"></textarea>
             </div>
-            <div>
-                <div class="ui fluid search selection dropdown ">
-                  <input name="recipes">
-                  <i class="dropdown icon"></i>
-                  <div class="default text">Select A Recipe </div>
-                  <div class="menu">
-                    <% recipes.forEach(recipes => { %>
-                      <div data-value="<%= recipes._id %>" class="item"> <%= recipes.title %> </div>
-                      <% }) %> 
-                    </div>
-                    </div>
-              </div>
-              <button class="ui orange button">Save</button>
-              <a class="ui black button" href="../recipes/">Discard</a>
-            </div>
+              <select class="ui search dropdown">
+                <!-- <i class="dropdown icon"></i> -->
+                <option>Select A Recipe </option>
+                  <% recipes.forEach(recipe=> { %>
+                    <option value="<%= recipe.id %>">
+                      <%= recipe.title %>
+                    </option>
+                    <% }) %>
+                  </select>
+
+            <button class="ui orange button">Save</button>
+            <a class="ui black button" href="../recipes/">Discard</a>
           </form>
         </section>
+      </div>
 
-        <br><br>
+      <br><br>
       </div>
       <!-- This is where the reviews will go  -->
 
@@ -76,7 +81,7 @@
                   <%= review.content %>
                 </div>
                 <a href="/recipes/<%= review.recipe.id %>">
-                  <%= review.recipe.title %> 
+                  <%= review.recipe.title %>
                 </a>
                 <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
                   <button class="ui red button">Delete</button>
@@ -84,8 +89,8 @@
               </div>
             </div>
           </div>
-          <% }) %>
-
+            <% }) %>
+        </div>
   </body>
-
+s
 </html>

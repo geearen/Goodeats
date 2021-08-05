@@ -23,6 +23,7 @@ router.get("/", function (request, response) {
         reviews: allReviews,
         recipes: allRecipes,
       };
+      console.log(context.reviews)
       return response.render("reviews/index", context);
     })
   })
@@ -51,7 +52,7 @@ router.delete("/:id", function(request, response){
       req.error = error;
       return next();
     }
-return response.redirect("/reviews")
+  return response.redirect("/reviews")
   })
 });
 

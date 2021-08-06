@@ -7,12 +7,13 @@ const { Recipe, Review } = require("../models");
 
 
 /* Index Route */
-router.get("/", function (request, response) {
+router.get("/", function (request, response, next) {
   // response.send("I AM INDEX");
   Recipe.find({}, function (error, allRecipes) {
     if (error) {
       console.log(error);
       request.error = error;
+      return next();
     };
 
     const context = {
@@ -34,6 +35,7 @@ router.get("/filter/:category", function (request, response, next) {
       if (error) {
         console.log(error);
         request.error = error;
+        return next();
       };
       let context = {};
       if (filteredRecipes.length == 0) {
@@ -88,7 +90,7 @@ router.post("/comment/:id", function (request, response) {
 });
 
 /* Show Route */
-router.get("/:id", function (request, response) {
+router.get("/:id", function (request, response,next) {
   // response.send("I AM SHOW PAGE");
   Recipe.findById(request.params.id, function (error, foundRecipe) {
     if (error) {
@@ -107,7 +109,7 @@ router.get("/:id", function (request, response) {
 });
 
 /* Edit Route */
-router.get("/:id/edit", function (request, response) {
+router.get("/:id/edit", function (request, response,next) {
   // response.send("I AM EDIT PAGE")
   Recipe.findById(request.params.id, function (error, foundRecipe) {
     if (error) {
@@ -145,7 +147,7 @@ router.put("/:id", function (request, response) {
 });
 
 /* Delete Route */
-router.delete("/:id", function (request, response) {
+router.delete("/:id", function (request, response,next) {
   // response.send("I AM DELETED oh nooo");
   Recipe.findByIdAndDelete(request.params.id, function (error, deletedRecipes) {
     if (error) {

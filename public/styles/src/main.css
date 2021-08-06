@@ -232,4 +232,26 @@ article, aside, footer, header, nav, section {
   font-family: "Comfortaa", cursive;
 }
 
+/* 404 */
+.error_404.ui.inverted.segment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  padding: 0px;
+  margin: 0px;
+}
+.error_404.ui.inverted.segment .error_image {
+  height: 350px;
+  width: 500px;
+}
+.error_404.ui.inverted.segment #error_header {
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+  font-size: 10rem;
+  text-decoration: solid;
+  text-shadow: 2px 5px 2px #D62828;
+}
+
 /*# sourceMappingURL=main.css.map */

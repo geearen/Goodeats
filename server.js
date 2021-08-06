@@ -56,6 +56,12 @@ app.use("/reviews", controllers.review);
 
 
 /* 404 */
+app.get("/*", (request, response) =>{
+  const context ={
+    error: request.error,
+  }
+  response.render("404", context);
+});
 
 /* PORT BINDING */
 app.listen(PORT, () =>{

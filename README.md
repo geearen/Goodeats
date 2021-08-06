@@ -55,7 +55,7 @@ https://coolors.co/003049-d62828-f77f00-fcbf49-eae2b7
 ![COLORS](https://coolors.co/003049-d62828-f77f00-fcbf49-eae2b7)
 
 # REST/CRUD 
-![CRUD](https://i.imgur.com/EA6YKUD.png)
+![CRUD](https://i.imgur.com/Hhvigks.png)
 
 # ERD 
 ![ERD](https://i.imgur.com/mhELHcH.png)
@@ -83,3 +83,4 @@ https://coolors.co/
 https://dribbble.com/
 https://api.jquery.com/
 https://css-tricks.com/
+https://themodernproper.com/

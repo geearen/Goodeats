@@ -78,7 +78,7 @@ router.post("/", function (request, response) {
 
 /* Create Route for Show Page Comment */
 router.post("/comment/:id", authRequired, function (request, response) {
-  
+  // request.body.user = request.session.currentUser.id;
   Review.create(request.body, function (error, createdReviews) {
     if (error) {
       console.log(error)

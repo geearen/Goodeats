@@ -42,11 +42,7 @@ app.use(express.urlencoded({extended:true}));
 /* Custom Middleware */
 app.use(require("./utils/logger"));
 
-const authRequired = function(request,response,next){
-  if(!request.session.currentUser){
-    return response.redirect("/login");
-  }
-}
+
 app.get("/", (request, respond) => respond.redirect("/recipes"));
 
 /*  Routes */

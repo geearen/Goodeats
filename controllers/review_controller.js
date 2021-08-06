@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-
+const {authRequired} = require("../utils/auth")
 const { Review, Recipe } = require("../models");
 
 
@@ -31,8 +31,7 @@ router.get("/", function (request, response) {
 
 
 /* Create Route */
-router.post("/", function(request, response){
-  request.body.user = request.session.currentUser.id;
+router.post("/", authRequired, function(request, response){
   Review.create(request.body, function (error, createdReviews){
     if(error){
       console.log(error)
@@ -45,7 +44,7 @@ router.post("/", function(request, response){
 
 
 /* Delete Route */
-router.delete("/:id", function(request, response){
+router.delete("/:id", authRequired, function(request, response, next){
   Review.findByIdAndDelete(request.params.id, function (error, deletedReviews){
     if(error) {
       console.log(error)

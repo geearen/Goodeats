@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-
+const {authRequired} = require("../utils/auth");
 const { Recipe, Review } = require("../models");
 
 
@@ -77,8 +77,8 @@ router.post("/", function (request, response) {
 });
 
 /* Create Route for Show Page Comment */
-router.post("/comment/:id", function (request, response) {
-  request.body.user = request.session.currentUser.id;
+router.post("/comment/:id", authRequired, function (request, response) {
+  
   Review.create(request.body, function (error, createdReviews) {
     if (error) {
       console.log(error)
@@ -109,8 +109,9 @@ router.get("/:id", function (request, response,next) {
 });
 
 /* Edit Route */
-router.get("/:id/edit", function (request, response,next) {
+router.get("/:id/edit", authRequired, function (request, response,next) {
   // response.send("I AM EDIT PAGE")
+
   Recipe.findById(request.params.id, function (error, foundRecipe) {
     if (error) {
       console.log(error);
@@ -147,7 +148,7 @@ router.put("/:id", function (request, response) {
 });
 
 /* Delete Route */
-router.delete("/:id", function (request, response,next) {
+router.delete("/:id", authRequired, function (request, response, next) {
   // response.send("I AM DELETED oh nooo");
   Recipe.findByIdAndDelete(request.params.id, function (error, deletedRecipes) {
     if (error) {

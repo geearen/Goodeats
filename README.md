@@ -1,4 +1,4 @@
-# Goodeats ![website](https://goodeats-allen-nick.herokuapp.com/)
+# Goodeats https://goodeats-allen-nick.herokuapp.com/
 by Nick Arredondo & Allen Gonzales
 
 # Objective

@@ -3,6 +3,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const path = require("path");
 require("dotenv").config();
 
 /* Module Instance */
@@ -15,7 +16,8 @@ const PORT = process.env.PORT || 5000;
 const controllers = require("./controllers");
 
 /* App Config */
-const viewsPath = path.join(__dirname, "../views");
+const viewsPath = path.join(__dirname, "./views");
+console.log(viewsPath);
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 

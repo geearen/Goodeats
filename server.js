@@ -63,4 +63,4 @@ app.listen(PORT, () => {
   console.log(`GoodEats is on port ${PORT}`);
 });
 
-export default app;
+module.exports = app;

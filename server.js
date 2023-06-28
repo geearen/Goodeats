@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 5000;
 const controllers = require("./controllers");
 
 /* App Config */
-app.set("views", "./views");
+const viewsPath = path.join(__dirname, "../views");
+app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
 /* Session Controller */
@@ -56,7 +57,7 @@ app.get("/*", (request, response) => {
   const context = {
     error: request.error,
   };
-  response.render("404.ejs", context);
+  response.render("error/404.ejs", context);
 });
 
 /* PORT BINDING */

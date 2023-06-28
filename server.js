@@ -56,7 +56,7 @@ app.get("/*", (request, response) => {
   const context = {
     error: request.error,
   };
-  response.render("404", context);
+  response.render("404.ejs", context);
 });
 
 /* PORT BINDING */

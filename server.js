@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 const controllers = require("./controllers");
 
 /* App Config */
+app.set("views", "./views");
 app.set("view engine", "ejs");
 
 /* Session Controller */

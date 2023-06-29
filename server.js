@@ -17,7 +17,6 @@ const controllers = require("./controllers");
 
 /* App Config */
 const viewsPath = path.join(__dirname, "./views");
-console.log(viewsPath);
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
